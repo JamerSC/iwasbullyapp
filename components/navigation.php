@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <?php if($role == 'admin'){ ?>
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link active" href="dashboard.php">Dashboard</a>
         </li>
         <li class="nav-item">
@@ -19,30 +19,27 @@
         <li class="nav-item">
           <a class="nav-link" href="report.php">Report</a>
         </li>
-
-        <?php } ?>
-        <?php if($role == 'student' || $role == 'teacher'){ ?>
+      <?php } ?>
+      <?php if($role == 'student' || $role == 'teacher'){ ?>
         <li class="nav-item">
           <a class="nav-link" href="home.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="counsel_sched.php">Counsel Appointment</a>
+          <a class="nav-link" href="counsel_sched.php">Schedule</a>
         </li>
-        <?php } ?>
-
-        <?php if($role == 'admin' || $role == 'student' || $role == 'teacher'){ ?>
-        <li class="nav-item">
-          <a class="nav-link" href="profile.php">Profile</a>
-        </li>
+      <?php } ?>
+      <?php if($role == 'admin' || $role == 'student' || $role == 'teacher'){ ?>
         <li class="nav-item">
           <a class="nav-link" href="chat.php">Chat</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="profile.php">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../function/logout.php">Logout</a>
         </li>
       </ul>
-      <?php } ?>
-
+       <?php } ?>
       <span class="navbar-text text-lg-start">
         <?php echo '<b>' . ucfirst($role) . '</b>'; ?>
       </span>
