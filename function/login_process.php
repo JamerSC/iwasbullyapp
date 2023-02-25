@@ -22,7 +22,7 @@ require_once '../connection/DBconnection.php';
         if ($row > 0) 
         {
             
-            if ($fetch['role'] === 'admin' || $fetch['role'] === 'student' || $fetch['role'] === 'teacher' ) 
+            if ($fetch['role'] === 'admin') 
             {
                 $_SESSION['user_id'] = $fetch['id'];
                 $_SESSION['user_role'] = $fetch['role'];            
@@ -31,6 +31,14 @@ require_once '../connection/DBconnection.php';
                 echo " <script>alert('Login successfully!!')</script>";
                 //header('Location: ../admin/dashboard.php');
             } 
+            elseif($fetch['role'] === 'student' || $fetch['role'] === 'teacher' )
+            {
+                $_SESSION['user_id'] = $fetch['id'];
+                $_SESSION['user_role'] = $fetch['role']; 
+                
+                echo "<script>window.location = '../admin/home.php'</script>";
+                echo " <script>alert('Login successfully!!')</script>";
+            }
             else 
             {
                 //back to login
