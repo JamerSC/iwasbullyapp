@@ -4,7 +4,6 @@ require 'components/indexnav.php';
 ?>
 
 <div class="container mt-3">
-  <!-- Your main content goes here -->
     <div class="modal fade" id="loginModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -16,11 +15,16 @@ require 'components/indexnav.php';
                     <form method="post" action="function/login_process.php">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <input type="text" class="form-control" id="username" name="username" 
+                        placeholder="Enter your username"required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" 
+                        placeholder="Enter your password" required>
+                        <button class="btn btn-default" type="button" onclick="loginVisibilityPassword()">
+                        <i class="bi bi-eye"></i>
+                        </button>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                     </form>
@@ -40,15 +44,21 @@ require 'components/indexnav.php';
                     <form method="post" action="#">
                         <div class="mb-3">
                             <label for="username" class="form-label">Create username</label>
-                            <input type="text" class="form-control" id="username">
+                            <input type="text" class="form-control" id="username" 
+                            placeholder="Enter your username"required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Enter your email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password">
+                            <label for="cpassword" class="form-label">Create Password</label>
+                            <input type="password" class="form-control" id="cpassword" 
+                            name="cpassword" placeholder="Enter your password" required>
+                            <button class="btn btn-default" type="button" id="showPassword">
+                            <i id="iconEye" class="bi bi-eye"></i>
+                            </button>
                         </div>
                         <button type="submit" class="btn btn-primary">Sign Up</button>
                     </form>
