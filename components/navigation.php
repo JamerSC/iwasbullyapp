@@ -8,10 +8,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <?php if($role == 'admin'){ ?>
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard.php">Dashboard</a>
+          <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="post.php">Post</a>
+          <a class="nav-link" href="post.php">Post</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="appointment.php">Appointment</a>
@@ -22,7 +22,7 @@
       <?php } ?>
       <?php if($role == 'student' || $role == 'teacher'){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="home.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="home.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="counsel_sched.php">Schedule</a>
@@ -36,7 +36,9 @@
           <a class="nav-link" href="profile.php">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../function/logout.php">Logout</a>
+          <a class="nav-link" href="../function/logout.php"
+          onclick="return confirm('Are you sure you want to LOGOUT? \n\n Just click \'OK\'!');">
+          Logout</a>
         </li>
       </ul>
        <?php } ?>
