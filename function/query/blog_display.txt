@@ -1,0 +1,9 @@
+<?php
+$stmt = $pdo->query("SELECT * FROM posts ORDER BY date_created DESC");
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+  echo "<h2>" . $row['title'] . "</h2>";
+  echo "<p>" . $row['content'] . "</p>";
+  echo "<p>" . $row['date_created'] . "</p>";
+}
+?>
