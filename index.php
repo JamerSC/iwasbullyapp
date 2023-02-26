@@ -1,6 +1,6 @@
 <?php 
 require 'components/header.php'; 
-require 'components/indexnav.php'; 
+require 'components/indexnav.php';
 ?>
 
 <div class="container mt-3">
@@ -32,7 +32,7 @@ require 'components/indexnav.php';
             </div>
         </div>
     </div>
-                    <!-- Sign up -->
+     <!-- Sign up -->
     <div class="modal fade" id="signupModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -41,7 +41,7 @@ require 'components/indexnav.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="#">
+                    <form method="post" action="function/signup_process.php">
                        <!-- user type -->
                         <div class="input-group mb-3">
                         <select class="form-select" id="role" name="role">
@@ -60,7 +60,7 @@ require 'components/indexnav.php';
                         <!-- lastname-->
                         <div class="input-group mb-3">
                             <label for="lastname" class="input-group-text">Lastname</label>
-                            <input type="text" class="form-control" id="username"  name="lastname"
+                            <input type="text" class="form-control" id="lastname"  name="lastname"
                             placeholder="Enter your last name"required>
                         </div>
                         <!-- lastname-->
@@ -78,7 +78,7 @@ require 'components/indexnav.php';
                         <!-- Username -->
                         <div class="input-group mb-3">
                             <label for="username" class="input-group-text">Create username</label>
-                            <input type="text" class="form-control" id="username" 
+                            <input type="text" class="form-control" id="username" name="username" 
                             placeholder="email@example.com"required>
                         </div>
                         <!-- Password -->
