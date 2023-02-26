@@ -24,6 +24,10 @@
           <a class="nav-link" href="report.php">
           <i class="bi bi-pencil-square"></i> Report</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user_list.php">
+          <i class="bi bi-people"></i> Users</a>
+        </li>
       <?php } ?>
 
       <?php if($role == 'student' || $role == 'teacher'){ ?>
@@ -42,27 +46,28 @@
           <a class="nav-link" href="chat.php">
           <i class="bi bi-chat-left-dots"></i> Chat</a>
         </li>
+      <?php } ?>
+      <?php if($role == 'student' || $role == 'teacher'){ ?>
           <li class="nav-item">
           <a class="nav-link" href="profile.php">
           <i class="bi bi-person-circle"></i> Profile</a>
         </li>
+      <?php } ?>
         <li class="nav-item">
           <a class="nav-link" href="../function/logout.php"
           onclick="return confirm('Are you sure you want to LOGOUT? \n\n Just click \'OK\'!');">
           <i class="bi bi-box-arrow-in-left"></i> Logout</a>
         </li>
-        <?php } ?>
+        
       </ul>
-      
-       <?php if($role == 'admin' || $role == 'student' || $role == 'teacher'){ ?>
         <span class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          <?php echo '<b>' . ucfirst($role) . '</b>'; ?>
+          <?php echo '<b>'.$fname." ".$lname." (".ucfirst($role).')</b>'; ?>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
             <li class="dropdown-item">
             <a class="nav-link" href="profile.php">
-            <i class="bi bi-person-circle"></i> Profile</a>
+            <i class="bi bi-person-circle"></i> My Profile</a>
             </li>
             <li class="dropdown-item">
               <a class="nav-link" href="../function/logout.php"
@@ -71,7 +76,6 @@
             </li>
         </ul>
       </span>
-      <?php } ?>
     </div>
   </div>
 </nav>

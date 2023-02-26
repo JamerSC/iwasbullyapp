@@ -8,24 +8,27 @@ require_once '../connection/DBconnection.php';
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $stmt = $conn->prepare("SELECT * FROM users WHERE 
-            username = :username AND password = :password");
+        //include password if no hash
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
         $stmt->execute([
-            ':username' => $username, 
-            ':password' => $password
+            ':username' => $username 
         ]);
         
-        $fetch = $stmt->fetch(PDO::FETCH_ASSOC); //fetch 1 value
+        $fetch = $stmt->fetch(); //fetch 1 value
+        //no hash
+        //$fetch = $stmt->fetch(PDO::FETCH_ASSOC); //fetch 1 value
+        //$row = $stmt->rowCount();
+        //if($row > 0)
 
-        $row = $stmt->rowCount();
+         if(password_verify($password, $fetch['password'])) 
+         {
 
-        if ($row > 0) 
-        {
-            
             if ($fetch['role'] === 'admin') 
             {
-                $_SESSION['user_id'] = $fetch['id'];
-                $_SESSION['user_role'] = $fetch['role'];            
+                $_SESSION['id'] = $fetch['id'];
+                $_SESSION['role'] = $fetch['role'];
+                $_SESSION['fname'] = $fetch['firstname'];
+                $_SESSION['lname'] = $fetch['lastname'];            
                 //admin folder
                 echo " <script>alert('Login successfully!!')</script>";
                 echo "<script>window.location = '../admin/dashboard.php'</script>";
@@ -33,9 +36,11 @@ require_once '../connection/DBconnection.php';
             } 
             elseif($fetch['role'] === 'student' || $fetch['role'] === 'teacher' )
             {
-                $_SESSION['user_id'] = $fetch['id'];
-                $_SESSION['user_role'] = $fetch['role']; 
-
+                $_SESSION['id'] = $fetch['id'];
+                $_SESSION['role'] = $fetch['role'];
+                $_SESSION['fname'] = $fetch['firstname'];
+                $_SESSION['lname'] = $fetch['lastname']; 
+                
                 echo " <script>alert('Login successfully!!')</script>";
                 echo "<script>window.location = '../admin/home.php'</script>";
             }
@@ -46,12 +51,14 @@ require_once '../connection/DBconnection.php';
                 echo "<script>window.location = '../index.php?error=1'</script>";
                 //header('Location: ../index.php?error=1');
             }
-        } 
-        else 
-        {
+             
+         } 
+         else 
+         {
+
             echo " <script>alert('Incorrect username/password!!')</script>";
             echo "<script>window.location = '../index.php?error=1'</script>";
-        }
+         }
 
     }
     else 
