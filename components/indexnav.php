@@ -6,11 +6,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+        <li class="nav-item fw-bold">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <i class="bi bi-box-arrow-right"></i> Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</a>
+        <li class="nav-item fw-bold">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">
+          <i class="bi bi-pencil-square"></i> Signup</a>
         </li>
       </ul>
     </div>
