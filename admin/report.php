@@ -36,7 +36,7 @@ require '../components/navigation.php';
               <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="form-group">
-              <label for="category">Category:</label>
+              <label for="category">Type of Bullying:</label>
               <select class="form-control" id="category" name="category">
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
@@ -50,7 +50,7 @@ require '../components/navigation.php';
               <input type="file" class="form-control-file" id="image" name="image">
             </div>
             <div class="form-group">
-              <label for="description">Description:</label>
+              <label for="description">Remarks:</label>
               <textarea class="form-control" id="description" name="description"></textarea>
             </div>
           </div>

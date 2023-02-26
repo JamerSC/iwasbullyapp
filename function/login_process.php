@@ -27,17 +27,17 @@ require_once '../connection/DBconnection.php';
                 $_SESSION['user_id'] = $fetch['id'];
                 $_SESSION['user_role'] = $fetch['role'];            
                 //admin folder
-                echo "<script>window.location = '../admin/dashboard.php'</script>";
                 echo " <script>alert('Login successfully!!')</script>";
+                echo "<script>window.location = '../admin/dashboard.php'</script>";
                 //header('Location: ../admin/dashboard.php');
             } 
             elseif($fetch['role'] === 'student' || $fetch['role'] === 'teacher' )
             {
                 $_SESSION['user_id'] = $fetch['id'];
                 $_SESSION['user_role'] = $fetch['role']; 
-                
-                echo "<script>window.location = '../admin/home.php'</script>";
+
                 echo " <script>alert('Login successfully!!')</script>";
+                echo "<script>window.location = '../admin/home.php'</script>";
             }
             else 
             {

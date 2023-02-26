@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="post.php">
-          <i class="bi bi-newspaper"></i> Post</a>
+          <i class="bi bi-megaphone"></i> Post</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="appointment.php">
