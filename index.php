@@ -22,8 +22,8 @@ require 'components/indexnav.php';
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" 
                         placeholder="Enter your password" required>
-                        <button class="btn btn-default" type="button" onclick="loginVisibilityPassword()">
-                        <i class="bi bi-eye"></i>
+                        <button class="btn btn-default" type="button" id="showLoginPassword">
+                        <i id="iconEyeLogin" class="bi bi-eye"></i>
                         </button>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
@@ -54,10 +54,10 @@ require 'components/indexnav.php';
                         </div>
                         <div class="mb-3">
                             <label for="cpassword" class="form-label">Create Password</label>
-                            <input type="password" class="form-control" id="cpassword" 
+                            <input type="password" class="form-control" id="cpassword" name="cpassword"
                             name="cpassword" placeholder="Enter your password" required>
-                            <button class="btn btn-default" type="button" id="showPassword">
-                            <i id="iconEye" class="bi bi-eye"></i>
+                            <button class="btn btn-default" type="button" id="showSignupPassword">
+                            <i id="iconEyeSignup" class="bi bi-eye"></i>
                             </button>
                         </div>
                         <button type="submit" class="btn btn-primary">Sign Up</button>

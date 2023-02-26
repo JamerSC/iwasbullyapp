@@ -1,21 +1,22 @@
 function loginVisibilityPassword() {
-    var passwordField = document.querySelector("#password");
-    var icon = document.querySelectorAll(".glyphicon");
-    if (passwordField.type === "password") {
-      passwordField.type = "text";
-      icon.classList.remove("glyphicon-eye-open");
-      icon.classList.add("glyphicon-eye-close");
-    } else {
-      passwordField.type = "password";
-      icon.classList.remove("glyphicon-eye-close");
-      icon.classList.add("glyphicon-eye-open");
-    }
+  var passwordInput = document.getElementById("password");
+  var iconEye = document.getElementById("iconEyeLogin");
+  
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    iconEye.classList.remove("bi-eye");
+    iconEye.classList.add("bi-eye-slash");
+  } else {
+    passwordInput.type = "password";
+    iconEye.classList.remove("bi-eye-slash");
+    iconEye.classList.add("bi-eye");
+  }
   }
   
 
   function signupVisibilityPassword() {
     var passwordInput = document.getElementById("cpassword");
-    var iconEye = document.getElementById("iconEye");
+    var iconEye = document.getElementById("iconEyeSignup");
     
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
@@ -28,5 +29,9 @@ function loginVisibilityPassword() {
     }
   }
   
-  var showPasswordButton = document.getElementById("showPassword");
-  showPasswordButton.addEventListener("click", signupVisibilityPassword);
+
+var showPasswordButton = document.getElementById("showLoginPassword");
+showPasswordButton.addEventListener("click", loginVisibilityPassword);
+
+var showPasswordButton = document.getElementById("showSignupPassword");
+showPasswordButton.addEventListener("click", signupVisibilityPassword);
