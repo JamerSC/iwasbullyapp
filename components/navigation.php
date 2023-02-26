@@ -7,7 +7,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-      <?php if($role == 'admin'){ ?>
+      <?php if($role == 'councilor'){ ?>
         <li class="nav-item">
           <a class="nav-link" href="dashboard.php">
           <i class="bi bi-speedometer"></i> Dashboard</a>
@@ -41,7 +41,7 @@
         </li>
       <?php } ?>
 
-      <?php if($role == 'admin' || $role == 'student' || $role == 'teacher'){ ?>
+      <?php if($role == 'councilor' || $role == 'student' || $role == 'teacher'){ ?>
         <li class="nav-item">
           <a class="nav-link" href="chat.php">
           <i class="bi bi-chat-left-dots"></i> Chat</a>
@@ -62,7 +62,7 @@
       </ul>
         <span class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          <?php echo '<b>'.$fname." ".$lname." (".ucfirst($role).')</b>'; ?>
+          <?php echo '<b>['.ucfirst($role)."] ".$fname." ".$lname.'</b>'; ?>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
             <li class="dropdown-item">

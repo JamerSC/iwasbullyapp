@@ -5,7 +5,7 @@ require '../components/header.php';
 require '../components/navigation.php';
 ?>
 
-  <h1>Home</h1>
+  <h3>Home</h3>
 
 
 <?php require '../components/footer.php' ;?>

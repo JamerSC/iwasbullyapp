@@ -1,0 +1,17 @@
+CREATE TABLE users (
+  user_id int NOT NULL AUTO_INCREMENT,
+  role enum('admin','student','teacher','staff','intern') NOT NULL,
+  username varchar(50) NOT NULL,
+  password varchar(50) NOT NULL,
+  firstname varchar(50) NOT NULL,
+  lastname varchar(50) NOT NULL,
+  sch_id_no int NOT NULL,
+  email varchar(50) NOT NULL,
+  created_date datetime DEFAULT current_timestamp(),
+  modified_date timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  modified_by int,
+  PRIMARY KEY (user_id)
+);
+
+admin
+hash 123 = $2y$10$okfVkycPqx.ME.sJVYSgQeW0y7wH1T9Aln49mEcFn1J7XuwJowgby

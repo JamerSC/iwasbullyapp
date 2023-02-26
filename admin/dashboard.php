@@ -4,7 +4,7 @@ require '../components/header.php';
 require '../components/navigation.php';
 ?>
     <div class="container-fluid">
-        <h1>Dashboard</h1>
+        <h3>Dashboard</h3>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">

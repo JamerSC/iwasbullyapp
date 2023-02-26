@@ -5,12 +5,12 @@ require '../components/header.php';
 require '../components/navigation.php';
 ?>
 
-  <h1>Post</h1>
+  <h3>Post</h3>
 
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Create New Post
+  Create Post
 </button>
 
 <!-- Modal -->
@@ -18,26 +18,26 @@ require '../components/navigation.php';
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create New Post</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <!-- Post form -->
 
         <form action="create_post.php" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="title">Title</label>
+          <div class="form-group mb-3">
+            <label class="input-group-text" for="title">Title</label>
             <input type="text" class="form-control" id="title" name="title" required>
           </div>
-          <div class="form-group">
-            <label for="content">Content</label>
+          <div class="form-group mb-3">
+            <label class="input-group-text" for="content">Content</label>
             <textarea class="form-control" id="content" name="content" required></textarea>
           </div>
-          <div class="form-group">
-            <label for="image">Image</label>
+          <div class="form-group mb-3">
+            <label class="input-group-text" for="image">Image</label>
             <input type="file" class="form-control-file" id="image" name="image" required>
           </div>
-          <button type="submit" class="btn btn-primary">Create Post</button>
+          <button type="submit" class="btn btn-primary form-control">Post</button>
         </form>
 
         
@@ -57,8 +57,7 @@ require '../components/navigation.php';
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-secondary form-control" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>

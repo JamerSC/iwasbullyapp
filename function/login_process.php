@@ -23,9 +23,9 @@ require_once '../connection/DBconnection.php';
          if(password_verify($password, $fetch['password'])) 
          {
 
-            if ($fetch['role'] === 'admin') 
+            if ($fetch['role'] === 'councilor') 
             {
-                $_SESSION['id'] = $fetch['id'];
+                $_SESSION['id'] = $fetch['user_id'];
                 $_SESSION['role'] = $fetch['role'];
                 $_SESSION['fname'] = $fetch['firstname'];
                 $_SESSION['lname'] = $fetch['lastname'];            
@@ -36,7 +36,7 @@ require_once '../connection/DBconnection.php';
             } 
             elseif($fetch['role'] === 'student' || $fetch['role'] === 'teacher' )
             {
-                $_SESSION['id'] = $fetch['id'];
+                $_SESSION['id'] = $fetch['user_id'];
                 $_SESSION['role'] = $fetch['role'];
                 $_SESSION['fname'] = $fetch['firstname'];
                 $_SESSION['lname'] = $fetch['lastname']; 
