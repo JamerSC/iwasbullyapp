@@ -5,7 +5,7 @@ require '../components/header.php';
 require '../components/navigation.php';
 ?>
 
-  <h1>Chat</h1>
+  <h3>Chat</h3>
 
 
 <?php require '../components/footer.php' ;?>

@@ -1,11 +1,25 @@
 <?php
 
 // Database connection
-require_once '../connection/DBconnection.php';
+//require_once '../connection/DBconnection.php';
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "iwasbullyapp_db";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo "Connected!";
+    //echo "<script>alert('Connected!');</script>";
+    
+
 
 // Check if the form is submitted
 if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastname'])
-    && isset($_POST['idno']) && isset($_POST['email']) && isset($_POST['username']) 
+    && isset($_POST['sch_id_no']) && isset($_POST['email']) && isset($_POST['username']) 
     && isset($_POST['cpassword'])) 
 {
 
@@ -13,7 +27,7 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
   $role = $_POST['role'];
   $firstname = $_POST['firstname'];
   $lastname = $_POST['lastname'];
-  $id_no = $_POST['idno'];
+  $sch_id_no = $_POST['sch_id_no'];
   $email = $_POST['email'];
   $username = $_POST['username'];
   $password = $_POST['cpassword'];
@@ -35,16 +49,16 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
 
     // Insert user data into database
     $stmt = $conn->prepare("INSERT INTO users 
-    (username, password, role, firstname, lastname, id_no, email) 
-    VALUES (:username, :password, :role, :firstname, :lastname, :id_no, :email)");
+    (role, username, password, firstname, lastname, sch_id_no, email) 
+    VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email)");
     $stmt->execute
     ([
+        'role' => $role,
         'username' => $username,
         'password' => $hashed_password,
-        'role' => $role,
         'firstname' => $firstname, 
         'lastname' => $lastname,
-        'id_no' => $id_no,
+        'sch_id_no' => $sch_id_no,
         'email' => $email
     ]);
 
@@ -55,6 +69,15 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
   }
 
 }
+
+
+
+
+} catch (PDOException $e) {
+  echo "Connection Failed " . $e->getMessage();
+  die();
+}
+
 
 
 ?>

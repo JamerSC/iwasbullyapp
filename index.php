@@ -65,8 +65,8 @@ require 'components/indexnav.php';
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="idno" class="input-group-text">School ID No.</label>
-                            <input type="text" class="form-control" id="idno"  name="idno"
+                            <label for="sch_id_no" class="input-group-text">School ID No.</label>
+                            <input type="text" class="form-control" id="sch_id_no"  name="sch_id_no"
                             placeholder="Enter school ID no."required>
                         </div>
                         <!-- email -->
