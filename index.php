@@ -84,14 +84,14 @@ require 'components/indexnav.php';
                         <!-- Password -->
                         <div class="input-group mb-3">
                             <label for="cpassword" class="input-group-text">Create Password</label>
-                            <input type="password" class="form-control" id="cpassword" name="cpassword"
+                            <input type="password" class="form-control" id="cpassword"
                             name="cpassword" placeholder="Enter your password" required>
                             <button class="btn btn-secondary" type="button" id="showSignupPassword">
                             <i id="iconEyeSignup" class="bi bi-eye"></i>
                             </button>
                         </div>
                             <button type="submit" class="btn btn-primary form-control">Sign Up</button>
-                    </class=>
+                    </form>
                 </div>
             </div>
         <div>

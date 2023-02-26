@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once '../connection/DBconnection.php';
+
 $id = $_SESSION['id'];
 $role = $_SESSION['role'];
 $fname = $_SESSION['fname'];

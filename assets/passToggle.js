@@ -1,3 +1,4 @@
+//login
 function loginVisibilityPassword() {
   var passwordInput = document.getElementById("password");
   var iconEye = document.getElementById("iconEyeLogin");
@@ -12,8 +13,7 @@ function loginVisibilityPassword() {
     iconEye.classList.add("bi-eye");
   }
   }
-  
-
+//Signup 
   function signupVisibilityPassword() {
     var passwordInput = document.getElementById("cpassword");
     var iconEye = document.getElementById("iconEyeSignup");
@@ -28,10 +28,10 @@ function loginVisibilityPassword() {
       iconEye.classList.add("bi-eye");
     }
   }
-  
-
+//
 var showPasswordButton = document.getElementById("showLoginPassword");
 showPasswordButton.addEventListener("click", loginVisibilityPassword);
 
 var showPasswordButton = document.getElementById("showSignupPassword");
 showPasswordButton.addEventListener("click", signupVisibilityPassword);
+
