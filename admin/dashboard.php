@@ -3,7 +3,7 @@ require '../function/session.php';
 require '../components/header.php'; 
 require '../components/navigation.php';
 ?>
-    <div class="container-fluid">
+    <div class="container">
         <h3>Dashboard</h3>
         <div class="row">
             <div class="col-md-6">

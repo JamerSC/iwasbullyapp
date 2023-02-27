@@ -1,21 +1,7 @@
 <?php
 
 // Database connection
-//require_once '../connection/DBconnection.php';
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "iwasbullyapp_db";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //echo "Connected!";
-    //echo "<script>alert('Connected!');</script>";
-    
-
+require_once '../connection/DBconnection.php';
 
 // Check if the form is submitted
 if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastname'])
@@ -65,19 +51,9 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
     echo " <script>alert('Created account succesfuly!!')</script>";
     echo "<script>window.location = '../index.php'</script>";
     //header("location: login.php"); // Redirect to login page
-    //exit();
+    exit();
   }
 
 }
-
-
-
-
-} catch (PDOException $e) {
-  echo "Connection Failed " . $e->getMessage();
-  die();
-}
-
-
 
 ?>
