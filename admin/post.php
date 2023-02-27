@@ -63,5 +63,4 @@ require '../components/navigation.php';
   </div>
 </div>
 
-
 <?php require '../components/footer.php' ;?>

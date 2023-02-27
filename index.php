@@ -54,7 +54,7 @@ require 'components/indexnav.php';
                         <!-- firstname -->
                         <div class="input-group mb-3">
                             <label for="firstname" class="input-group-text">Firstname</label>
-                            <input type="text" class="form-control" id="username" name="firstname" 
+                            <input type="text" class="form-control" id="firstname" name="firstname" 
                             placeholder="Enter your firts name"required>
                         </div>
                         <!-- lastname-->
@@ -84,8 +84,8 @@ require 'components/indexnav.php';
                         <!-- Password -->
                         <div class="input-group mb-3">
                             <label for="cpassword" class="input-group-text">Create Password</label>
-                            <input type="password" class="form-control" id="cpassword"
-                            name="cpassword" placeholder="Enter your password" required>
+                            <input type="password" class="form-control" id="cpassword" name="cpassword" 
+                            placeholder="Enter your password" required>
                             <button class="btn btn-secondary" type="button" id="showSignupPassword">
                             <i id="iconEyeSignup" class="bi bi-eye"></i>
                             </button>
@@ -98,4 +98,7 @@ require 'components/indexnav.php';
     <div>
 </div>
 
+    <!-- JS password toggle -->
+    <script src="assets/passToggle.js"></script>
+    
 <?php require 'components/footer.php' ;?>

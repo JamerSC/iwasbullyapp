@@ -1,13 +1,15 @@
 <?php
 
-// Database connection
-require_once '../connection/DBconnection.php';
+session_start();
 
-// Check if the form is submitted
+require_once 'connection.php';
+
 if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastname'])
     && isset($_POST['sch_id_no']) && isset($_POST['email']) && isset($_POST['username']) 
-    && isset($_POST['cpassword'])) 
+    && isset($_POST['password'])) 
 {
+
+  $modified_by = $_SESSION['role'];
 
   // Get form data
   $role = $_POST['role'];
@@ -16,8 +18,8 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
   $sch_id_no = $_POST['sch_id_no'];
   $email = $_POST['email'];
   $username = $_POST['username'];
-  $password = $_POST['cpassword'];
-
+  $password = $_POST['password'];
+  
 
   // Check if the username is already taken
   $stmt = $conn->prepare("SELECT * FROM users WHERE username=:username");
@@ -26,7 +28,7 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
   if ($user) 
   {
      echo "<script>alert('Username already taken!!!')</script>";
-     echo "<script>window.location = '../index.php'</script>";
+     echo "<script>window.location = '../user_list.php'</script>";
   } 
   else 
   {
@@ -35,8 +37,8 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
 
     // Insert user data into database
     $stmt = $conn->prepare("INSERT INTO users 
-    (role, username, password, firstname, lastname, sch_id_no, email) 
-    VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email)");
+    (role, username, password, firstname, lastname, sch_id_no, email, modified_by) 
+    VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :modified_by)");
     $stmt->execute
     ([
         'role' => $role,
@@ -45,11 +47,13 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
         'firstname' => $firstname, 
         'lastname' => $lastname,
         'sch_id_no' => $sch_id_no,
-        'email' => $email
+        'email' => $email,
+        'modified_by' => $modified_by
+
     ]);
 
     echo " <script>alert('Created account succesfuly!!')</script>";
-    echo "<script>window.location = '../index.php'</script>";
+    echo "<script>window.location = '../user_list.php'</script>";
     //header("location: login.php"); // Redirect to login page
     exit();
   }

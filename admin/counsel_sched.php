@@ -7,5 +7,4 @@ require '../components/navigation.php';
 
   <h3>Counseling Schedule</h3>
 
-
 <?php require '../components/footer.php' ;?>
