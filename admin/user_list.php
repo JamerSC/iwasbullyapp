@@ -54,7 +54,8 @@ require '../components/navigation.php';
         </div>
     </div>
             <!-- Modal -->
-        <div class="modal fade" id="createNewAccount" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="createNewAccount" data-bs-backdrop="static" 
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -62,8 +63,7 @@ require '../components/navigation.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-                    <form method="POST" action="#">
+                    <form method="POST" action="crud/create_account.php">
                        <!-- user type -->
                         <div class="input-group mb-3">
                         <select class="form-select" id="role" name="role">
@@ -124,7 +124,6 @@ require '../components/navigation.php';
                 </div>
             </div>
         </div>
-
         <script src="../assets/updateToggle.js"></script>
 
 <?php require '../components/footer.php' ;?>
