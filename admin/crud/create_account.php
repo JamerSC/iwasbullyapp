@@ -4,9 +4,9 @@ session_start();
 
 require_once 'connection.php';
 
-if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastname'])
-    && isset($_POST['sch_id_no']) && isset($_POST['email']) && isset($_POST['username']) 
-    && isset($_POST['password'])) 
+if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8lastname'])
+    && isset($_POST['c8sch_id_no']) && isset($_POST['c8email']) && isset($_POST['c8username']) 
+    && isset($_POST['c8password'])) 
 {
 
   try
@@ -17,13 +17,13 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
     $created_by = $_SESSION['role'];
 
     // Get form data
-    $role = $_POST['role'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $sch_id_no = $_POST['sch_id_no'];
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $role = $_POST['c8role'];
+    $firstname = $_POST['c8firstname'];
+    $lastname = $_POST['c8lastname'];
+    $sch_id_no = $_POST['c8sch_id_no'];
+    $email = $_POST['c8email'];
+    $username = $_POST['c8username'];
+    $password = $_POST['c8password'];
     
 
     // Check if the username is already taken

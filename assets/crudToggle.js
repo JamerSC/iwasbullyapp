@@ -1,7 +1,7 @@
 //Update
-function updateVisibilityPassword() {
-    var passwordInput = document.getElementById("password");
-    var iconEye = document.getElementById("iconEyeUpdate");
+function createVisibilityPassword() {
+    var passwordInput = document.getElementById("c8password");
+    var iconEye = document.getElementById("iconEyeCreate");
     
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
@@ -14,5 +14,5 @@ function updateVisibilityPassword() {
     }
   }
 
-var showPasswordButton = document.getElementById("showUpdatePassword");
-showPasswordButton.addEventListener("click", updateVisibilityPassword);
+var showPasswordButton = document.getElementById("showCreatePassword");
+showPasswordButton.addEventListener("click", createVisibilityPassword);
