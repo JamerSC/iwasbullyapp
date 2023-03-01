@@ -9,9 +9,6 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
     && isset($_POST['cpassword'])) 
 {
 
-  // Define the regular expression patterns for username and password
-  $password_regex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/";
-
   // Get form data
   $role = $_POST['role'];
   $firstname = $_POST['firstname'];
@@ -33,36 +30,28 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
   } 
   else 
   {
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert user data into database
     $stmt = $conn->prepare("INSERT INTO users 
     (role, username, password, firstname, lastname, sch_id_no, email) 
     VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email)");
+    $stmt->execute
+    ([
+        'role' => $role,
+        'username' => $username,
+        'password' => $hashed_password,
+        'firstname' => $firstname, 
+        'lastname' => $lastname,
+        'sch_id_no' => $sch_id_no,
+        'email' => $email
+    ]);
 
-    // Validate password against the regular expressions
-    if (preg_match($password_regex, $password)) 
-    {
-      $stmt->execute
-      ([
-          'role' => $role,
-          'username' => $username,
-          'password' => $password,
-          'firstname' => $firstname, 
-          'lastname' => $lastname,
-          'sch_id_no' => $sch_id_no,
-          'email' => $email
-      ]);
-
-      echo " <script>alert('Created account succesfuly!!')</script>";
-      echo "<script>window.location = '../index.php'</script>";
-      //header("location: login.php"); // Redirect to login page
-      //exit();
-    }
-    else 
-    {
-      echo " <script>alert('Invalid password format!')</script>";
-      echo "<script>window.location = '../index.php'</script>";
-    }
+    echo " <script>alert('Created account succesfuly!!')</script>";
+    echo "<script>window.location = '../index.php'</script>";
+    //header("location: login.php"); // Redirect to login page
+    exit();
   }
 
 }

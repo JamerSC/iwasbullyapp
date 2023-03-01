@@ -9,21 +9,20 @@ require_once '../connection/DBconnection.php';
         $password = $_POST['password'];
 
         //include password if no hash
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE 
+        username = :username AND password = :password");
         $stmt->execute([
-            ':username' => $username 
+            ':username' => $username ,
+            ':password' => $password
         ]);
         
-        $fetch = $stmt->fetch(); //fetch 1 value
-        //no hash
-        //$fetch = $stmt->fetch(PDO::FETCH_ASSOC); //fetch 1 value
-        //$row = $stmt->rowCount();
-        //if($row > 0)
+        $fetch = $stmt->fetch(PDO::FETCH_ASSOC); //fetch 1 value
+        $row = $stmt->rowCount();
 
-         if(password_verify($password, $fetch['password'])) 
+         if($row > 0) 
          {
 
-            if ($fetch['role'] === 'councilor') 
+            if ($fetch['role'] === 'councilor' || $fetch['role'] === 'staff') 
             {
                 $_SESSION['id'] = $fetch['user_id'];
                 $_SESSION['role'] = $fetch['role'];
