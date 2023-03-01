@@ -66,56 +66,56 @@ require '../components/navigation.php';
                     <form method="POST" action="crud/create_account.php">
                        <!-- user type -->
                         <div class="input-group mb-3">
-                        <select class="form-select" id="role" name="role">
+                        <select class="form-select" id="c8role" name="c8role">
                             <option selected disabled>Choose</option>
                             <option value="2">Student</option>
                             <option value="3">Teacher</option>
                             <option value="4">Staff</option>
                             <option value="5">Intern</option>
                         </select>
-                        <label class="input-group-text" for="role">User type</label>
+                        <label class="input-group-text" for="c8role">User type</label>
                         </div>
                         <!-- firstname -->
                         <div class="input-group mb-3">
-                            <label for="firstname" class="input-group-text">Firstname</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" 
+                            <label for="c8firstname" class="input-group-text">Firstname</label>
+                            <input type="text" class="form-control" id="c8firstname" name="c8firstname" 
                             placeholder="Enter your firstname"required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="lastname" class="input-group-text">Lastname</label>
-                            <input type="text" class="form-control" id="lastname"  name="lastname"
+                            <label for="c8lastname" class="input-group-text">Lastname</label>
+                            <input type="text" class="form-control" id="c8lastname"  name="c8lastname"
                             placeholder="Enter your lastname"required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="sch_id_no" class="input-group-text">School ID No.</label>
-                            <input type="text" class="form-control" id="sch_id_no"  name="sch_id_no"
+                            <label for="c8sch_id_no" class="input-group-text">School ID No.</label>
+                            <input type="text" class="form-control" id="c8sch_id_no"  name="c8sch_id_no"
                             placeholder="Enter school ID no."required>
                         </div>
                         <!-- email -->
                         <div class="input-group mb-3">
-                            <label for="email" class="input-group-text">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email"
+                            <label for="c8email" class="input-group-text">Email address</label>
+                            <input type="email" class="form-control" id="c8email" name="c8email"
                             placeholder="Enter your email add" required>
                         </div>
                         <!-- Username -->
                         <div class="input-group mb-3">
-                            <label for="username" class="input-group-text">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" 
+                            <label for="c8username" class="input-group-text">Username</label>
+                            <input type="text" class="form-control" id="c8username" name="c8username" 
                             placeholder="email@example.com"required>
                         </div>
                         <!-- Password -->
                         <div class="input-group mb-3">
-                            <label for="password" class="input-group-text">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" 
+                            <label for="c8password" class="input-group-text">Password</label>
+                            <input type="password" class="form-control" id="c8password" name="c8password" 
                             placeholder="Enter your password" required>
-                            <button class="btn btn-secondary" type="button" id="showUpdatePassword">
-                            <i id="iconEyeUpdate" class="bi bi-eye"></i>
+                            <button class="btn btn-secondary" type="button" id="showCreatePassword">
+                            <i id="iconEyeCreate" class="bi bi-eye"></i>
                             </button>
                         </div>
                             <button type="submit" class="btn btn-primary form-control">
-                            Create</button>
+                            Create Account</button>
                     </form>
                 </div>
                     <div class="modal-footer">
@@ -124,6 +124,7 @@ require '../components/navigation.php';
                 </div>
             </div>
         </div>
-        <script src="../assets/updateToggle.js"></script>
+
+        <script src="../assets/crudToggle.js"></script>
 
 <?php require '../components/footer.php' ;?>

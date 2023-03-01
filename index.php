@@ -99,6 +99,6 @@ require 'components/indexnav.php';
 </div>
 
     <!-- JS password toggle -->
-    <script src="assets/passToggle.js"></script>
+    <script src="assets/loginSignupToggle.js"></script>
     
 <?php require 'components/footer.php' ;?>
