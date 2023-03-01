@@ -7,7 +7,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-      <?php if($role == 'councilor'){ ?>
+      <?php if($role == 'councilor' || $role == 'staff' ){ ?>
         <li class="nav-item">
           <a class="nav-link" href="dashboard.php">
           <i class="bi bi-speedometer"></i> Dashboard</a>

@@ -13,6 +13,8 @@ if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8l
   {
 
 
+    // Define the regular expression patterns for username and password
+    $password_regex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/";
 
     $created_by = $_SESSION['role'];
 
@@ -37,30 +39,37 @@ if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8l
       } 
       else 
       {
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // Validate password against the regular expressions
+        if (preg_match($password_regex, $password)) 
+        {
 
-        // Insert user data into database
-        $stmt = $conn->prepare("INSERT INTO users 
-        (role, username, password, firstname, lastname, sch_id_no, email, created_by) 
-        VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :created_by)");
-        $stmt->execute
-        ([
-            'role' => $role,
-            'username' => $username,
-            'password' => $hashed_password,
-            'firstname' => $firstname, 
-            'lastname' => $lastname,
-            'sch_id_no' => $sch_id_no,
-            'email' => $email,
-            'created_by' => $created_by
+          // Insert user data into database
+          $stmt = $conn->prepare("INSERT INTO users 
+          (role, username, password, firstname, lastname, sch_id_no, email, created_by) 
+          VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :created_by)");
+          $stmt->execute
+          ([
+              'role' => $role,
+              'username' => $username,
+              'password' => $password,
+              'firstname' => $firstname, 
+              'lastname' => $lastname,
+              'sch_id_no' => $sch_id_no,
+              'email' => $email,
+              'created_by' => $created_by
 
-        ]);
+          ]);
 
-        echo " <script>alert('Created account succesfuly!!')</script>";
-        echo "<script>window.location = '../user_list.php'</script>";
-        //header("location: login.php"); // Redirect to login page
-        exit();
+          echo " <script>alert('Created User Account Succesfuly!!')</script>";
+          echo "<script>window.location = '../user_list.php'</script>";
+          //header("location: login.php"); // Redirect to login page
+          exit();
+        }
+        else
+        {
+          echo " <script>alert('Invalid password format!')</script>";
+          echo "<script>window.location = '../user_list.php'</script>";
+        }
       }
 
   }

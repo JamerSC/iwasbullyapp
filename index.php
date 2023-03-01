@@ -2,7 +2,7 @@
 require 'components/header.php'; 
 require 'components/indexnav.php';
 ?>
-
+ <!-- login -->
 <div class="container mt-3">
     <div class="modal fade" id="loginModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -29,10 +29,16 @@ require 'components/indexnav.php';
                     <button type="submit" class="btn btn-primary form-control">Login</button>
                     </form>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
-     <!-- Sign up -->
+
+
+
+<!-- Sign up -->
     <div class="modal fade" id="signupModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -78,7 +84,7 @@ require 'components/indexnav.php';
                         <!-- Username -->
                         <div class="input-group mb-3">
                             <label for="username" class="input-group-text">Create username</label>
-                            <input type="text" class="form-control" id="username" name="username" 
+                            <input type="email" class="form-control" id="username" name="username" 
                             placeholder="email@example.com"required>
                         </div>
                         <!-- Password -->
@@ -89,9 +95,13 @@ require 'components/indexnav.php';
                             <button class="btn btn-secondary" type="button" id="showSignupPassword">
                             <i id="iconEyeSignup" class="bi bi-eye"></i>
                             </button>
+                            <p><small>Enter atleast 8 character with number, sysmbol, small, and capital letter.</small></p>
                         </div>
                             <button type="submit" class="btn btn-primary form-control">Sign Up</button>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
         <div>

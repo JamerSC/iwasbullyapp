@@ -1,4 +1,4 @@
-//Update
+//Create
 function createVisibilityPassword() {
     var passwordInput = document.getElementById("c8password");
     var iconEye = document.getElementById("iconEyeCreate");
@@ -16,3 +16,5 @@ function createVisibilityPassword() {
 
 var showPasswordButton = document.getElementById("showCreatePassword");
 showPasswordButton.addEventListener("click", createVisibilityPassword);
+
+
