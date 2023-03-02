@@ -31,12 +31,13 @@ require '../components/navigation.php';
               <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="input-group mb-3">
-              <label class="input-group-text" for="category">Type of Bully</label>
+              <label class="input-group-text" for="category">Type of Bullying</label>
               <select class="form-control" id="category" name="category">
-                <option selected disabled>Select type of bully...</option>
-                <option value="option2">Verbal</option>
-                <option value="option3">Physical</option>
-                <option value="option3">Cyber</option>
+                <option selected disabled>Select...</option>
+                <option value="1">Verbal</option>
+                <option value="2">Physical</option>
+                <option value="3">Social</option>
+                <option value="3">Cyber</option>
               </select>
             </div>
             <div class="input-group mb-3">
@@ -52,7 +53,7 @@ require '../components/navigation.php';
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary form-control" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
