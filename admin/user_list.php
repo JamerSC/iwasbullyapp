@@ -13,60 +13,83 @@ require '../components/navigation.php';
         <h3 class="text-center">List of Users</h3>
         
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <?php if($role == 'councilor'){ ?>
-        <button class="btn btn-primary" 
-        data-bs-toggle="modal" data-bs-target="#createNewAccount">
-        <i class="bi bi-person-plus"></i>
-        Create Account
-        </button>
+        <?php if($role == 'councilor')
+        { ?>
+            <button class="btn btn-primary" 
+            data-bs-toggle="modal" data-bs-target="#createNewAccount">
+            <i class="bi bi-person-plus"></i>
+            Create Account
+            </button>
         <?php } ?>
         </div>
         <div class="table-responsive my-3">
             <table class="table table-hover table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th>School ID #</th>
+                        <th>#</th>
+                        <th>School Id No.</th>
                         <th>User</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
-                        <th>View</th>
-                        <?php if($role == 'councilor'){ ?>
-                        <th>Update</th>
                         <th>Status</th>
-                        <?php } ?>
+                        <th>View</th>
+                        <?php if($role == 'councilor') 
+                        { ?>
+                            <th>Update</th>
+                            <th>Activate/Deactivate</th>
+                        <?php 
+                         } ?>
+                        
                     </tr>
                 </thead>
                 <tbody>
                 <?php foreach($user as $users): ?>
                     <tr>
+                        <td><?= $users->user_id; ?></td>
                         <td><?= $users->sch_id_no; ?></td>
                         <td><?= ucfirst($users->role); ?></td>
                         <td><?= $users->firstname; ?> </td>
                         <td><?= $users->lastname; ?></td>
+                        <?php if($users->status == 1): ?>
+                            <td>Actived</td>
+                        <?php else: ?>
+                            <td>Deactivated</td>
+                        <?php endif; ?>
                         <td>
                         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
                         data-bs-target="#viewAccount_<?= $users->user_id; ?>">
-                        <i class="bi bi-search">View</i>
+                        <i class="bi bi-search"></i>
                         </button>
                         </td>
-                        <?php if($role == 'councilor'){ ?>
-                        <td>
-                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
-                        data-bs-target="#updateAccount_<?= $users->user_id; ?>">
-                        <i class="bi bi-pencil-square">Update</i>
-                        </button>
-                       
-                        </td>
-                        <td>
-                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
-                        data-bs-target="#deactivateAccount">
-                        <i class="bi bi-person-check">Active</i>
-                        </button>
-                        </td>
-                        <?php } ?>
+                        <?php if($role == 'councilor')
+                        {?>
+                            <td>
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                            data-bs-target="#updateAccount_<?= $users->user_id; ?>">
+                            <i class="bi bi-pencil-square"></i>
+                            </button>
+                            </td>
+                        
 
+                            <td>
+                            <?php if($users->status == 0): ?>
+                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                                data-bs-target="#activateAccount_<?= $users->user_id; ?>">
+                                <i class="bi bi-person-check"> Activate</i>
+                                </button>
+                            <?php else: ?>
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
+                                data-bs-target="#deactivateAccount_<?= $users->user_id; ?>">
+                                <i class="bi bi-person-dash"> Deactivate</i>
+                                </button>
+                            <?php endif; ?>       
+                            </td>
+                        <?php } ?>
+                        
                         <?php include 'modal/view_modal.php'; ?>
                         <?php include 'modal/update_modal.php'; ?>
+                        <?php include 'modal/activate_modal.php'; ?>
+                        <?php include 'modal/deactivate_modal.php'; ?>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
