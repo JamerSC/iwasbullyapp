@@ -31,7 +31,6 @@ require '../components/navigation.php';
                         <th>User</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
-                        <th>Email</th>
                         <th>View</th>
                         <?php if($role == 'councilor'){ ?>
                         <th>Update</th>
@@ -46,17 +45,16 @@ require '../components/navigation.php';
                         <td><?= ucfirst($users->role); ?></td>
                         <td><?= $users->firstname; ?> </td>
                         <td><?= $users->lastname; ?></td>
-                        <td><?= $users->email; ?></td>
                         <td>
                         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
-                        data-bs-target="#">
+                        data-bs-target="#viewAccount_<?= $users->user_id; ?>">
                         <i class="bi bi-search"></i>
                         </button>
                         </td>
                         <?php if($role == 'councilor'){ ?>
                         <td>
                         <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
-                        data-bs-target="#viewUpdateAccount_<?= $users->user_id; ?>">
+                        data-bs-target="#updateAccount_<?= $users->user_id; ?>">
                         <i class="bi bi-pencil-square"></i>
                         </button>
                        
@@ -68,8 +66,9 @@ require '../components/navigation.php';
                         </button>
                         </td>
                         <?php } ?>
-                        
-                        <?php include 'modal/modal_update.php'; ?>
+
+                        <?php include 'modal/view_modal.php'; ?>
+                        <?php include 'modal/update_modal.php'; ?>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -143,7 +142,7 @@ require '../components/navigation.php';
                     </form>
                     </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Close</button>
                         </div>
                 </div>
             </div>
