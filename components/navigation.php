@@ -7,7 +7,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-      <?php if($role == 'councilor' || $role == 'staff' ){ ?>
+      <?php if($role == 'councilor' || $role == 'staff' || $role == 'intern'  ): ?>
+      
         <li class="nav-item">
           <a class="nav-link" href="dashboard.php">
           <i class="bi bi-speedometer"></i> Dashboard</a>
@@ -28,9 +29,9 @@
           <a class="nav-link" href="user_list.php">
           <i class="bi bi-people"></i> Users</a>
         </li>
-      <?php } ?>
+      <?php endif; ?>
 
-      <?php if($role == 'student' || $role == 'teacher'){ ?>
+      <?php if($role == 'student' || $role == 'teacher'): ?>
         <li class="nav-item">
           <a class="nav-link" href="home.php">
           <i class="bi bi-house"></i> Home</a>
@@ -39,20 +40,19 @@
           <a class="nav-link" href="counsel_sched.php">
           <i class="bi bi-calendar"></i> Schedule</a>
         </li>
-      <?php } ?>
-
-      <?php if($role == 'councilor' || $role == 'student' || $role == 'teacher'){ ?>
+      <?php endif; ?>
+      <?php if($role == 'councilor' || $role == 'student' || $role == 'teacher'): ?>
         <li class="nav-item">
           <a class="nav-link" href="chat.php">
           <i class="bi bi-chat-left-dots"></i> Chat</a>
         </li>
-      <?php } ?>
-      <?php if($role == 'student' || $role == 'teacher'){ ?>
+      <?php endif; ?>
+      <?php if($role == 'student' || $role == 'teacher'): ?>
           <li class="nav-item">
           <a class="nav-link" href="profile.php">
           <i class="bi bi-person-circle"></i> Profile</a>
         </li>
-      <?php } ?>
+      <?php endif; ?>
         <li class="nav-item">
           <a class="nav-link" href="../function/logout.php"
           onclick="return confirm('Are you sure you want to LOGOUT? \n\n Just click \'OK\'!');">
