@@ -21,35 +21,44 @@ require_once '../connection/DBconnection.php';
 
          if($row > 0) 
          {
-
-            if ($fetch['role'] === 'councilor' || $fetch['role'] === 'staff') 
+            //Account status validation
+            if($fetch['status'] === 1) 
             {
-                $_SESSION['id'] = $fetch['user_id'];
-                $_SESSION['role'] = $fetch['role'];
-                $_SESSION['fname'] = $fetch['firstname'];
-                $_SESSION['lname'] = $fetch['lastname'];            
-                //admin folder
-                echo " <script>alert('Login successfully!!')</script>";
-                echo "<script>window.location = '../admin/dashboard.php'</script>";
-                //header('Location: ../admin/dashboard.php');
-            } 
-            elseif($fetch['role'] === 'student' || $fetch['role'] === 'teacher' )
-            {
-                $_SESSION['id'] = $fetch['user_id'];
-                $_SESSION['role'] = $fetch['role'];
-                $_SESSION['fname'] = $fetch['firstname'];
-                $_SESSION['lname'] = $fetch['lastname']; 
-                
-                echo " <script>alert('Login successfully!!')</script>";
-                echo "<script>window.location = '../admin/home.php'</script>";
+                if ($fetch['role'] === 'councilor' || $fetch['role'] === 'staff') 
+                {
+                    $_SESSION['id'] = $fetch['user_id'];
+                    $_SESSION['role'] = $fetch['role'];
+                    $_SESSION['fname'] = $fetch['firstname'];
+                    $_SESSION['lname'] = $fetch['lastname'];            
+                    //admin folder
+                    echo " <script>alert('Login successfully!!')</script>";
+                    echo "<script>window.location = '../admin/dashboard.php'</script>";
+                    //header('Location: ../admin/dashboard.php');
+                } 
+                elseif($fetch['role'] === 'student' || $fetch['role'] === 'teacher' )
+                {
+                    $_SESSION['id'] = $fetch['user_id'];
+                    $_SESSION['role'] = $fetch['role'];
+                    $_SESSION['fname'] = $fetch['firstname'];
+                    $_SESSION['lname'] = $fetch['lastname']; 
+                    
+                    echo " <script>alert('Login successfully!!')</script>";
+                    echo "<script>window.location = '../admin/home.php'</script>";
+                }
+                else 
+                {
+                    echo " <script>alert('Incorrect username/password!!')</script>";
+                    echo "<script>window.location = '../index.php?error=1'</script>";
+                    //header('Location: ../index.php?error=1');
+                }
             }
-            else 
+            else
             {
-                //back to login
-                echo " <script>alert('Incorrect username/password!!')</script>";
+                echo " <script>alert('Your Account is deactivated!!')</script>";
                 echo "<script>window.location = '../index.php?error=1'</script>";
-                //header('Location: ../index.php?error=1');
             }
+
+            
              
          } 
          else 
