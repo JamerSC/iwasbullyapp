@@ -18,6 +18,7 @@ if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8l
 
     $created_by = $_SESSION['role'];
 
+    $status = 1;
     // Get form data
     $role = $_POST['c8role'];
     $firstname = $_POST['c8firstname'];
@@ -45,8 +46,8 @@ if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8l
 
           // Insert user data into database
           $stmt = $conn->prepare("INSERT INTO users 
-          (role, username, password, firstname, lastname, sch_id_no, email, created_by) 
-          VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :created_by)");
+          (role, username, password, firstname, lastname, sch_id_no, email, created_by, status) 
+          VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :created_by, :status)");
           $stmt->execute
           ([
               'role' => $role,
@@ -56,7 +57,8 @@ if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8l
               'lastname' => $lastname,
               'sch_id_no' => $sch_id_no,
               'email' => $email,
-              'created_by' => $created_by
+              'created_by' => $created_by,
+              'status' => $status
 
           ]);
 
