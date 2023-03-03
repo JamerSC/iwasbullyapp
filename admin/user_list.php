@@ -23,11 +23,12 @@ require '../components/navigation.php';
         <?php } ?>
         </div>
         <div class="table-responsive my-3">
-            <table class="table table-hover table-striped">
+<!-- User table list -->
+            <table class="table align-middle table-hover table-striped">
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
-                        <th>School Id No.</th>
+                        <th>School ID No.</th>
                         <th>User</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
@@ -75,7 +76,7 @@ require '../components/navigation.php';
                             <?php if($users->status == 0): ?>
                                 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
                                 data-bs-target="#activateAccount_<?= $users->user_id; ?>">
-                                <i class="bi bi-person-check"> Activate</i>
+                                <i class="bi bi-person-check">  Activate . .</i>
                                 </button>
                             <?php else: ?>
                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 

@@ -4,19 +4,53 @@ require '../function/session.php';
 require '../components/header.php'; 
 require '../components/navigation.php';
 ?>
+<div class="container">
+  <h3 class="text-center">Complaint Report Records</h3>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="bi bi-person-plus"></i>
+    Create Report
+    </button>
 
-  <h3>Complaint Report</h3>
+      <div class="table-responsive my-3">
+        <table class="table align-middle table-hover table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Report No.</th>
+              <th>Complainant</th>
+              <th>Respondent</th>
+              <th>Type of Bullying</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>20230001</td>
+              <td>Juan</td>
+              <td>Jose</td>
+              <td>Physical</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>20230002</td>
+              <td>Ronilo</td>
+              <td>Marck</td>
+              <td>Cyber</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Create Report
-</button>
+</div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create New Report</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">New Report</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
