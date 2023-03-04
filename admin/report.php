@@ -20,6 +20,7 @@ require '../components/navigation.php';
               <th>Complainant</th>
               <th>Respondent</th>
               <th>Type of Bullying</th>
+              <th>Appointment</th>
             </tr>
           </thead>
           <tbody>
@@ -29,6 +30,7 @@ require '../components/navigation.php';
               <td>Juan</td>
               <td>Jose</td>
               <td>Physical</td>
+              <td><button type="button" class="btn btn-success">Create Appointment</button></td>
             </tr>
             <tr>
               <td>2</td>
@@ -36,6 +38,7 @@ require '../components/navigation.php';
               <td>Ronilo</td>
               <td>Marck</td>
               <td>Cyber</td>
+              <td><button type="button" class="btn btn-success">Create Appointment</button></td>
             </tr>
           </tbody>
         </table>
@@ -47,7 +50,7 @@ require '../components/navigation.php';
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">New Report</h1>
@@ -56,14 +59,60 @@ require '../components/navigation.php';
       <div class="modal-body">
         <!-- Report form -->
        <form method="post" enctype="multipart/form-data">
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name">
+            <!-- Complainant -->
+            <div class="mb-3">
+              <label for="basic-url" class="form-label">Complainant</label>
+              <div class="input-group">
+              <label class="input-group-text" for="name">Firstname</label>
+              <input type="text" class="form-control" id="name" name="name" 
+              placeholder="Enter firstname">
+              <label class="input-group-text" for="name">Lastname</label>
+              <input type="text" class="form-control" id="name" name="name"
+              placeholder="Enter lastname">
             </div>
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email">
             </div>
+             <!-- ID No. -->
+             <div class="mb-3"> 
+            <div class="input-group">
+            <label class="input-group-text" for="name">Sch. ID No.</label>
+            <input type="text" class="form-control" id="name" name="name" 
+            placeholder="Enter school id no.">
+            <label class="input-group-text" for="category">Year level...</label>
+              <select class="form-control" id="category" name="category">
+                <option selected disabled>Select year level</option>
+                <option value="1">Junior</option>
+                <option value="2">Senior</option>
+              </select>
+            </div>
+            </div>
+            
+            <!-- Respondent -->
+            <div class="mb-3">
+              <label for="basic-url" class="form-label">Respondent</label>
+              <div class="input-group">
+              <label class="input-group-text" for="name">Firstname</label>
+              <input type="text" class="form-control" id="name" name="name" 
+              placeholder="Enter firstname">
+              <label class="input-group-text" for="name">Lastname</label>
+              <input type="text" class="form-control" id="name" name="name"
+              placeholder="Enter lastname">
+            </div>
+            </div>
+             <!-- ID No. -->
+             <div class="mb-3"> 
+            <div class="input-group">
+            <label class="input-group-text" for="name">School ID #</label>
+            <input type="text" class="form-control" id="name" name="name" 
+            placeholder="Enter school id no.">
+            <label class="input-group-text" for="category">Year level</label>
+              <select class="form-control" id="category" name="category">
+                <option selected disabled>Select year level</option>
+                <option value="1">Junior</option>
+                <option value="2">Senior</option>
+              </select>
+            </div>
+            </div>
+
             <div class="input-group mb-3">
               <label class="input-group-text" for="category">Type of Bullying</label>
               <select class="form-control" id="category" name="category">

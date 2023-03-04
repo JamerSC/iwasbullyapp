@@ -13,14 +13,13 @@ require '../components/navigation.php';
         <h3 class="text-center">List of Users</h3>
         
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <?php if($role == 'councilor')
-        { ?>
+        <?php if($role == 'councilor'): ?>
             <button class="btn btn-primary" 
             data-bs-toggle="modal" data-bs-target="#createNewAccount">
             <i class="bi bi-person-plus"></i>
             Create Account
             </button>
-        <?php } ?>
+        <?php endif; ?>
         </div>
         <div class="table-responsive my-3">
 <!-- User table list -->
@@ -28,18 +27,16 @@ require '../components/navigation.php';
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
-                        <th>School ID No.</th>
+                        <th>Sch. ID No.</th>
                         <th>User</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>Status</th>
                         <th>View</th>
-                        <?php if($role == 'councilor') 
-                        { ?>
+                        <?php if($role == 'councilor'): ?>
                             <th>Update</th>
                             <th>Activate/Deactivate</th>
-                        <?php 
-                         } ?>
+                        <?php endif; ?>
                         
                     </tr>
                 </thead>
@@ -59,19 +56,16 @@ require '../components/navigation.php';
                         <td>
                         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
                         data-bs-target="#viewAccount_<?= $users->user_id; ?>">
-                        <i class="bi bi-search"></i>
+                        <i class="bi bi-eye-fill"></i>
                         </button>
                         </td>
-                        <?php if($role == 'councilor')
-                        {?>
+                        <?php if($role == 'councilor'): ?>
                             <td>
                             <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
                             data-bs-target="#updateAccount_<?= $users->user_id; ?>">
                             <i class="bi bi-pencil-square"></i>
                             </button>
                             </td>
-                        
-
                             <td>
                             <?php if($users->status == 0): ?>
                                 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
@@ -79,13 +73,14 @@ require '../components/navigation.php';
                                 <i class="bi bi-person-check">  Activate . .</i>
                                 </button>
                             <?php else: ?>
-                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
+                                <!-- echo 'style="display: none;"' ||  echo 'disabled';-->
+                                <button <?php if($users->role == 'councilor') { echo 'style="display: none;"'; } ?> type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
                                 data-bs-target="#deactivateAccount_<?= $users->user_id; ?>">
                                 <i class="bi bi-person-dash"> Deactivate</i>
                                 </button>
                             <?php endif; ?>       
                             </td>
-                        <?php } ?>
+                        <?php endif; ?>
                         
                         <?php include 'modal/view_modal.php'; ?>
                         <?php include 'modal/update_modal.php'; ?>

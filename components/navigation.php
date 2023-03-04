@@ -7,6 +7,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+        <!-- < ?php if($users->role == 'councilor') { echo 'display: none;'; } ? > -->
       <?php if($role == 'councilor' || $role == 'staff' || $role == 'intern'  ): ?>
       
         <li class="nav-item">
