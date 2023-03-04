@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="crud/update_account.php?id=<?= $users->user_id; ?>">
+        <form method="POST" action="user_account/update_account.php?id=<?= $users->user_id; ?>">
            <!-- user type -->
             <div class="input-group mb-3">
                 <label for="ufirstname" class="input-group-text">User type</label>

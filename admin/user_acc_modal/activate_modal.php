@@ -12,7 +12,7 @@
       </div>
       <div class="modal-footer">
         <a type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</a>
-        <a type="button" class="btn btn-primary" href="crud/activate_account.php?id=<?= $users->user_id; ?>">Please Confirm</a>
+        <a type="button" class="btn btn-primary" href="user_account/activate_account.php?id=<?= $users->user_id; ?>">Please Confirm</a>
       </div>
     </div>
   </div>

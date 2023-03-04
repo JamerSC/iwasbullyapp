@@ -54,14 +54,14 @@ require '../components/navigation.php';
                             <td>Deactivated</td>
                         <?php endif; ?>
                         <td>
-                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
+                        <button <?php if($users->role == 'councilor') { echo 'style="display: none;"'; } ?> type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
                         data-bs-target="#viewAccount_<?= $users->user_id; ?>">
                         <i class="bi bi-eye-fill"></i>
                         </button>
                         </td>
                         <?php if($role == 'councilor'): ?>
                             <td>
-                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                            <button <?php if($users->role == 'councilor') { echo 'style="display: none;"'; } ?> type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
                             data-bs-target="#updateAccount_<?= $users->user_id; ?>">
                             <i class="bi bi-pencil-square"></i>
                             </button>
@@ -82,10 +82,10 @@ require '../components/navigation.php';
                             </td>
                         <?php endif; ?>
                         
-                        <?php include 'modal/view_modal.php'; ?>
-                        <?php include 'modal/update_modal.php'; ?>
-                        <?php include 'modal/activate_modal.php'; ?>
-                        <?php include 'modal/deactivate_modal.php'; ?>
+                        <?php include 'user_acc_modal/view_modal.php'; ?>
+                        <?php include 'user_acc_modal/update_modal.php'; ?>
+                        <?php include 'user_acc_modal/activate_modal.php'; ?>
+                        <?php include 'user_acc_modal/deactivate_modal.php'; ?>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -102,9 +102,10 @@ require '../components/navigation.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                     <div class="modal-body">
-                    <form method="POST" action="crud/create_account.php">
+                    <form method="POST" action="user_account/create_account.php">
                        <!-- user type -->
                         <div class="input-group mb-3">
+                        <label class="input-group-text" for="c8role">User type</label>
                         <select class="form-select" id="c8role" name="c8role">
                             <option selected disabled>Choose</option>
                             <option value="2">Student</option>
@@ -112,7 +113,6 @@ require '../components/navigation.php';
                             <option value="4">Office Staff</option>
                             <option value="5">Intern</option>
                         </select>
-                        <label class="input-group-text" for="c8role">User type</label>
                         </div>
                         <!-- firstname -->
                         <div class="input-group mb-3">
