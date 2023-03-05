@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         <!-- Appointment form -->
-        <form method="post" action="insert_appointment.php">
+        <form method="post" action="#">
 
          <div class="row g-3 mb-3">
               <div class="input-group col">
