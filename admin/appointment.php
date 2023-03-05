@@ -17,9 +17,9 @@ require '../components/navigation.php';
               <th>Day</th>
               <th>Time Start</th>
               <th>Time End</th>
+              <th>Status</th>
               <th>View</th>
               <th>Update</th>
-              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -31,9 +31,9 @@ require '../components/navigation.php';
               <td>Wednesday</td>
               <td>04:00pm</td>
               <td>05:00pm</td>
+              <td><button type="button" class="btn btn-primary">In-process</button></td>
               <td><button type="button" class="btn btn-secondary">View</button></td>
               <td><button type="button" class="btn btn-success">Update</button></td>
-              <td><button type="button" class="btn btn-warning">On-going</button></td>
             </tr>
             <tr>
               <td>2</td>
@@ -43,9 +43,9 @@ require '../components/navigation.php';
               <td>Friday</td>
               <td>08:00am</td>
               <td>10:00am</td>
+              <td><button type="button" class="btn btn-warning">Enabled</button></td>
               <td><button type="button" class="btn btn-secondary">View</button></td>
               <td><button type="button" class="btn btn-success">Update</button></td>
-              <td><button type="button" class="btn btn-warning">On-going</button></td>
             </tr>
           </tbody>
         </table>
