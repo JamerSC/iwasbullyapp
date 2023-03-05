@@ -11,37 +11,37 @@
            <!-- user type -->
             <div class="input-group mb-3">
                 <label for="ufirstname" class="input-group-text">User type</label>
-                <input type="text" class="form-control" id="ufirstname" name="ufirstname" 
+                <input type="text" class="form-control" name="ufirstname" 
                 value="<?= ucfirst($users->role); ?>" disabled>
             </div>
             <!-- ID No. -->
             <div class="input-group mb-3">
                 <label for="usch_id_no" class="input-group-text">School ID No.</label>
-                <input type="text" class="form-control" id="usch_id_no"  name="usch_id_no"
+                <input type="text" class="form-control" name="usch_id_no"
                 value="<?= $users->sch_id_no; ?>" disabled>
             </div>
             <!-- firstname -->
             <div class="input-group mb-3">
                 <label for="ufirstname" class="input-group-text">Firstname</label>
-                <input type="text" class="form-control" id="ufirstname" name="ufirstname" 
+                <input type="text" class="form-control" name="ufirstname" 
                 value="<?= $users->firstname; ?>" disabled>
             </div>
             <!-- lastname-->
             <div class="input-group mb-3">
                 <label for="ulastname" class="input-group-text">Lastname</label>
-                <input type="text" class="form-control" id="ulastname"  name="ulastname"
+                <input type="text" class="form-control" name="ulastname"
                 value="<?= $users->lastname; ?>" disabled>
             </div>
             <!-- email -->
             <div class="input-group mb-3">
                 <label for="uemail" class="input-group-text">Email address</label>
-                <input type="email" class="form-control" id="uemail" name="uemail"
+                <input type="email" class="form-control" name="uemail"
                 value="<?= $users->email; ?>" disabled>
             </div>
             <!-- Username -->
             <div class="input-group mb-3">
                 <label for="uusername" class="input-group-text">Username</label>
-                <input type="email" class="form-control" id="uusername" name="uusername" 
+                <input type="email" class="form-control" name="uusername" 
                 value="<?= $users->username; ?>" disabled>
             </div>
             <!-- Password -->

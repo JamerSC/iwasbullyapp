@@ -67,13 +67,14 @@ require '../components/navigation.php';
                             </td>
                             <td>
                             <?php if($users->status == 0): ?>
-                                <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" 
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" 
                                 data-bs-target="#activateAccount_<?= $users->user_id; ?>">
                                 <i class="bi bi-person-check">  Activate . .</i>
                                 </button>
                             <?php else: ?>
                                 <!-- echo 'style="display: none;"' ||  echo 'disabled';-->
-                                <button <?php if($users->role == 'councilor') { echo 'style="display: none;"'; } ?> type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
+                                <button <?php if($users->role == 'councilor') { echo 'style="display: none;"'; } ?> 
+                                type="button" class="btn btn-danger" data-bs-toggle="modal" 
                                 data-bs-target="#deactivateAccount_<?= $users->user_id; ?>">
                                 <i class="bi bi-person-dash"> Deactivate</i>
                                 </button>
