@@ -26,11 +26,11 @@ require 'components/indexnav.php';
                         <i id="iconEyeLogin" class="bi bi-eye"></i>
                         </button>
                     </div>
-                    <button type="submit" class="btn btn-primary form-control">Login</button>
+                    <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
@@ -99,11 +99,11 @@ require 'components/indexnav.php';
                         <div class="mb-3">
                             <p><small class="fst-italic lh-1">Enter atleast 8 character with number, sysmbol, small, and capital letter.</small></p>
                         </div>
-                            <button type="submit" class="btn btn-primary form-control">Create Account</button>
+                        <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
         <div>

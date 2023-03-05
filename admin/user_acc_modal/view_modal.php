@@ -1,4 +1,4 @@
-<!-- Modal -->
+<!-- View Account Modal -->
 <div class="modal fade" id="viewAccount_<?= $users->user_id; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -44,13 +44,11 @@
                 <input type="email" class="form-control" name="uusername" 
                 value="<?= $users->username; ?>" disabled>
             </div>
-            <!-- Password -->
+            <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
         </form>        
-        
       </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Close</button>
-        </div>
     </div>
   </div>
 </div>

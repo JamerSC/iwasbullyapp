@@ -5,9 +5,9 @@ require '../components/header.php';
 require '../components/navigation.php';
 ?>
 <?php 
-    $id = $conn->prepare("SELECT * FROM users;");
-    $id->execute();
-    $user = $id->fetchAll(PDO::FETCH_OBJ);    
+    $stmt = $conn->prepare("SELECT * FROM users;");
+    $stmt->execute();
+    $user = $stmt->fetchAll(PDO::FETCH_OBJ);    
 ?>
     <div class="container my-3">
         <h3 class="text-center">List of Users</h3>   
@@ -153,14 +153,12 @@ require '../components/navigation.php';
                             <i id="iconEyeCreate" class="bi bi-eye"></i>
                             </button>
                         </div>
-                            <button type="submit" class="btn btn-primary form-control">
-                            Create Account
-                            </button>
+                        <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Create Account</button>
+                        </div>
                     </form>
                     </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Close</button>
-                        </div>
                 </div>
             </div>
         </div>

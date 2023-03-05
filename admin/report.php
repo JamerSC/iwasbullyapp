@@ -1,6 +1,7 @@
 <?php 
 
 require '../function/session.php';
+require_once '../connection/DBconnection.php';
 require '../components/header.php'; 
 require '../components/navigation.php';
 ?>
@@ -44,7 +45,7 @@ require '../components/navigation.php';
               </td>
               <td>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAppointment">
-                  Create Appointment
+                  Create
                 </button>
               </td>
             </tr>
@@ -66,7 +67,7 @@ require '../components/navigation.php';
               </td>
               <td>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAppointment">
-                  Create Appointment
+                  Create
                 </button>
               </td>
             </tr>
@@ -78,8 +79,6 @@ require '../components/navigation.php';
       </div>
 
 </div>
-
-
 
 <!-- Create Report -->
 <div class="modal fade" id="createNewReport" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -96,20 +95,23 @@ require '../components/navigation.php';
           <div class="row g-3 mb-3">
           <div class="fw-bold">Complainant</div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Firstname" aria-label="Firstname">
+              <input type="text" class="form-control" placeholder="Firstname"
+               aria-label="Firstname" name="c_firstname" required>
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Lastname" aria-label="Lastname">
+              <input type="text" class="form-control" placeholder="Lastname"
+               aria-label="Lastname" name="c_lastname" required>
             </div>
           </div>
 
           <div class="row g-3 mb-3">
             <div class="col-sm-3">
-              <input type="text" class="form-control" placeholder="School ID No." aria-label="School ID No.">
+              <input type="text" class="form-control" placeholder="School ID No." 
+              aria-label="School ID No." name="c_sch_id_no" required>
             </div>
              <div class="col-sm-3">
-              <label class="visually-hidden" for="autoSizingSelect">Year level</label>
-              <select class="form-select" id="autoSizingSelect">
+              <label class="visually-hidden" for="c_level">Year level</label>
+              <select class="form-select" name="c_level">
                 <option selected disabled>Year level or Position</option>
                 <option value="1">Junior</option>
                 <option value="2">Senior</option>
@@ -118,31 +120,36 @@ require '../components/navigation.php';
               </select>
             </div>
             <div class="col-sm-3">
-              <input type="text" class="form-control" placeholder="Email" aria-label="Email">
+              <input type="text" class="form-control" placeholder="Email" 
+              aria-label="Email" name="c_email" required>
             </div>
             <div class="col-sm-3">
-              <input type="text" class="form-control" placeholder="Contact No." aria-label="Contact No.">
+              <input type="text" class="form-control" placeholder="Contact No." 
+              aria-label="Contact No." name="c_contact" required>
             </div>
           </div>
 
          <!-- Respondent -->
-          <div class="row g-3 mb-3">
+         <div class="row g-3 mb-3">
           <div class="fw-bold">Respondent</div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Firstname" aria-label="Firstname">
+              <input type="text" class="form-control" placeholder="Firstname"
+               aria-label="Firstname" name="r_firstname" required>
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Lastname" aria-label="Lastname">
+              <input type="text" class="form-control" placeholder="Lastname"
+               aria-label="Lastname" name="r_lastname" required>
             </div>
           </div>
 
           <div class="row g-3 mb-3">
             <div class="col-sm-3">
-              <input type="text" class="form-control" placeholder="School ID No." aria-label="School ID No.">
+              <input type="text" class="form-control" placeholder="School ID No." 
+              aria-label="School ID No." name="r_sch_id_no" required>
             </div>
              <div class="col-sm-3">
-              <label class="visually-hidden" for="autoSizingSelect">Year level</label>
-              <select class="form-select" id="autoSizingSelect">
+              <label class="visually-hidden" for="r_level">Year level</label>
+              <select class="form-select" name="r_level">
                 <option selected disabled>Year level or Position</option>
                 <option value="1">Junior</option>
                 <option value="2">Senior</option>
@@ -150,10 +157,12 @@ require '../components/navigation.php';
               </select>
             </div>
             <div class="col-sm-3">
-              <input type="text" class="form-control" placeholder="Email" aria-label="Email">
+              <input type="text" class="form-control" placeholder="Email" 
+              aria-label="Email" name="r_email" required>
             </div>
             <div class="col-sm-3">
-              <input type="text" class="form-control" placeholder="Contact No." aria-label="Contact No.">
+              <input type="text" class="form-control" placeholder="Contact No." 
+              aria-label="Contact No." name="r_contact" required>
             </div>
           </div>
            <!-- Act of Bullying -->
@@ -190,12 +199,11 @@ require '../components/navigation.php';
               aria-label="Leave a comment here"></textarea>
             </div>
           </div>
+          <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Report</button>
+          </div>
         </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save Report</button>
       </div>
     </div>
   </div>

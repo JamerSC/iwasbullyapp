@@ -55,15 +55,12 @@
                 <input type="text" class="form-control" name="upassword" 
                 value="<?= $users->password; ?>" placeholder="Enter your password" required>
             </div>
-                <button type="submit" class="btn btn-primary form-control" name="update">
-                Update Account
-              </button>
+            <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" name="update">Update Account</button>
+            </div>
         </form>        
-        
       </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
-        </div>
     </div>
   </div>
 </div>

@@ -13,5 +13,52 @@ CREATE TABLE users (
   PRIMARY KEY (user_id)
 );
 
-admin
-hash 123 = $2y$10$okfVkycPqx.ME.sJVYSgQeW0y7wH1T9Aln49mEcFn1J7XuwJowgby
+
+REPORT TABLE
+
+Complainant
+c_firstname (varchar)
+c_lastname (varchar)
+c_sch_id_no (varchar)
+c_level (enum)
+c_email  (varchar)
+c_contact (varchar)
+
+Respondent
+r_firstname(varchar)
+r_lastname (varchar)
+r_sch_id_no (varchar)
+r_level (enum)
+r_email (varchar)
+r_contact (varchar)
+
+bullying_type (enum)
+
+image (varchar)
+link (text)
+
+remarks (text)
+
+Status (Actived/Inactived)
+
+created_by
+created_date
+
+modified_by
+modified_date
+
+
+APPOINMENT TABLE
+
+Date
+Day 
+Time
+
+Status (Completed, In-process, Cancel)
+
+created_by 
+created_date
+
+codified_by
+codified_date
+
