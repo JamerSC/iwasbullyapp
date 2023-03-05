@@ -74,14 +74,11 @@
             <input type="time" class="form-control" id="end" name="end" required>
           </div>
         </div>
-        <div>
-          <button type="submit" class="btn btn-primary form-control">Submit</button>
+        <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Appointment</button>
         </div>
-
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger form-control" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
