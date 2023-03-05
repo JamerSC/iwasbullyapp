@@ -10,8 +10,7 @@ require '../components/navigation.php';
     $user = $id->fetchAll(PDO::FETCH_OBJ);    
 ?>
     <div class="container my-3">
-        <h3 class="text-center">List of Users</h3>
-        
+        <h3 class="text-center">List of Users</h3>   
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <?php if($role == 'councilor'): ?>
             <button class="btn btn-primary" 
@@ -22,7 +21,7 @@ require '../components/navigation.php';
         <?php endif; ?>
         </div>
         <div class="table-responsive my-3">
-<!-- User table list -->
+<!-- User list table-->
             <table class="table align-middle table-hover table-striped">
                 <thead class="table-dark">
                     <tr>
@@ -68,7 +67,7 @@ require '../components/navigation.php';
                             </td>
                             <td>
                             <?php if($users->status == 0): ?>
-                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                                <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" 
                                 data-bs-target="#activateAccount_<?= $users->user_id; ?>">
                                 <i class="bi bi-person-check">  Activate . .</i>
                                 </button>
@@ -92,7 +91,7 @@ require '../components/navigation.php';
             </table>
         </div>
     </div>
-            <!-- Modal -->
+        <!-- Create New Account -->
         <div class="modal fade" id="createNewAccount" data-bs-backdrop="static" 
         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -118,25 +117,25 @@ require '../components/navigation.php';
                         <div class="input-group mb-3">
                             <label for="c8firstname" class="input-group-text">Firstname</label>
                             <input type="text" class="form-control" id="c8firstname" name="c8firstname" 
-                            placeholder="Enter your firstname" required>
+                            placeholder="Enter firstname" required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
                             <label for="c8lastname" class="input-group-text">Lastname</label>
                             <input type="text" class="form-control" id="c8lastname"  name="c8lastname"
-                            placeholder="Enter your lastname" required>
+                            placeholder="Enter lastname" required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="c8sch_id_no" class="input-group-text">School ID No.</label>
+                            <label for="c8sch_id_no" class="input-group-text">School ID #</label>
                             <input type="text" class="form-control" id="c8sch_id_no"  name="c8sch_id_no"
                             placeholder="Enter school ID no." required>
                         </div>
                         <!-- email -->
                         <div class="input-group mb-3">
-                            <label for="c8email" class="input-group-text">Email address</label>
+                            <label for="c8email" class="input-group-text">Email</label>
                             <input type="email" class="form-control" id="c8email" name="c8email"
-                            placeholder="Enter your email add" required>
+                            placeholder="Enter email add" required>
                         </div>
                         <!-- Username -->
                         <div class="input-group mb-3">
@@ -148,7 +147,7 @@ require '../components/navigation.php';
                         <div class="input-group mb-3">
                             <label for="c8password" class="input-group-text">Password</label>
                             <input type="password" class="form-control" id="c8password" name="c8password" 
-                            placeholder="Enter your password" required>
+                            placeholder="Example@123" required>
                             <button class="btn btn-secondary" type="button" id="showCreatePassword">
                             <i id="iconEyeCreate" class="bi bi-eye"></i>
                             </button>

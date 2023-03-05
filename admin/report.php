@@ -4,7 +4,7 @@ require '../function/session.php';
 require '../components/header.php'; 
 require '../components/navigation.php';
 ?>
-<div class="container">
+<div class="container  my-3">
   <h3 class="text-center">Complaint Report Records</h3>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createNewReport">
     <i class="bi bi-person-plus"></i>
@@ -20,6 +20,8 @@ require '../components/navigation.php';
               <th>Complainant</th>
               <th>Respondent</th>
               <th>Type of Bullying</th>
+              <th>View</th>
+              <th>Update</th>
               <th>Appointment</th>
             </tr>
           </thead>
@@ -29,9 +31,19 @@ require '../components/navigation.php';
               <td>20230001</td>
               <td>Juan</td>
               <td>Jose</td>
-              <td>Physical</td>
+              <td>Verbal</td>
               <td>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createAppointment">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewReport">
+                  View
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#updateReport">
+                  Update
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAppointment">
                   Create Appointment
                 </button>
               </td>
@@ -43,12 +55,24 @@ require '../components/navigation.php';
               <td>Marck</td>
               <td>Cyber</td>
               <td>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createAppointment">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewReport">
+                  View
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#updateReport">
+                  Update
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAppointment">
                   Create Appointment
                 </button>
               </td>
             </tr>
-            <?php include 'report_modal/appointment_modal.php'; ?>
+            <?php include 'report_modal/view_report_modal.php'; ?>
+            <?php include 'report_modal/update_report_modal.php'; ?>
+            <?php include 'report_modal/create_appointment_modal.php'; ?>
           </tbody>
         </table>
       </div>
@@ -57,7 +81,7 @@ require '../components/navigation.php';
 
 
 
-<!-- Modal -->
+<!-- Create Report -->
 <div class="modal fade" id="createNewReport" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -70,7 +94,7 @@ require '../components/navigation.php';
        <form method="post" enctype="multipart/form-data">
             <!-- Complainant -->
           <div class="row g-3 mb-3">
-          <div><strong>Complainant</strong></div>
+          <div class="fw-bold">Complainant</div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Firstname" aria-label="Firstname">
             </div>
@@ -90,7 +114,7 @@ require '../components/navigation.php';
                 <option value="1">Junior</option>
                 <option value="2">Senior</option>
                 <option value="3">Teacher</option>
-                <option value="4">Guidance</option>
+                <option value="4">Guidance Office</option>
               </select>
             </div>
             <div class="col-sm-3">
@@ -103,7 +127,7 @@ require '../components/navigation.php';
 
          <!-- Respondent -->
           <div class="row g-3 mb-3">
-          <div><strong>Respondent</strong></div>
+          <div class="fw-bold">Respondent</div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Firstname" aria-label="Firstname">
             </div>
@@ -132,13 +156,13 @@ require '../components/navigation.php';
               <input type="text" class="form-control" placeholder="Contact No." aria-label="Contact No.">
             </div>
           </div>
-
+           <!-- Act of Bullying -->
           <div class="row g-3 mb-3">
-          <div><strong>Type of Bullying</strong></div>
+          <div class="fw-bold">Type of Bullying</div>
             <div class="col-sm-5">
-              <label class="visually-hidden" for="autoSizingSelect">Type of Bullying</label>
+              <label class="visually-hidden" for="autoSizingSelect">Select ...</label>
               <select class="form-select" id="autoSizingSelect">
-                <option selected disabled>Type of Bullying</option>
+                <option selected disabled>Select ...</option>
                 <option value="1">Verbal</option>
                 <option value="2">Physical</option>
                 <option value="3">Social</option>
@@ -146,9 +170,9 @@ require '../components/navigation.php';
               </select>
             </div>
           </div>
-
+           <!-- Attachments -->
           <div class="row g-3 mb-3">
-          <div><strong>Attachments</strong></div>
+          <div class="fw-bold">Attachments <i class="fw-lighter">(If available)</i></div>
             <div class="col">
               <label class="input-group-text" for="image">Select Image</label>
               <input type="file" class="form-control-file" id="image" name="image">
@@ -158,11 +182,11 @@ require '../components/navigation.php';
               <input type="text" class="form-control" placeholder="Paste Video Link" aria-label="Paste Video Link">
             </div>
           </div>
-
+          <!-- Remarks -->
           <div class="row g-3 mb-3">
-          <div><strong>Remarks</strong></div>
+          <div class="fw-bold">Remarks <i class="fw-lighter">(If available)</i></div>
             <div class="col">
-              <textarea class="form-control" id="FormControlTextarea1" rows="3" placeholder="Leave a remarks here"
+              <textarea class="form-control" id="FormControlTextarea1" rows="3" placeholder="Leave a comment here"
               aria-label="Leave a comment here"></textarea>
             </div>
           </div>
