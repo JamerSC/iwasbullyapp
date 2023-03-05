@@ -83,8 +83,8 @@ require 'components/indexnav.php';
                         </div>
                         <!-- Username -->
                         <div class="input-group mb-3">
-                            <label for="username" class="input-group-text">Create Username</label>
-                            <input type="email" class="form-control" id="username" name="username" 
+                            <label for="cusername" class="input-group-text">Create Username</label>
+                            <input type="email" class="form-control" id="cusername" name="cusername" 
                             placeholder="email@example.com" required>
                         </div>
                         <!-- Password -->

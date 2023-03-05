@@ -10,7 +10,7 @@
         <form method="POST" action="user_account/update_account.php?id=<?= $users->user_id; ?>">
            <!-- user type -->
             <div class="input-group mb-3">
-            <select class="form-select" id="urole" name="urole">
+            <select class="form-select" name="urole">
                 <option selected><?= ucfirst($users->role); ?></option>
                 <option value="2">Student</option>
                 <option value="3">Teacher</option>
@@ -22,37 +22,37 @@
             <!-- firstname -->
             <div class="input-group mb-3">
                 <label for="ufirstname" class="input-group-text">Firstname</label>
-                <input type="text" class="form-control" id="ufirstname" name="ufirstname" 
+                <input type="text" class="form-control" name="ufirstname" 
                 value="<?= $users->firstname; ?>" placeholder="Enter your firstname" required>
             </div>
             <!-- lastname-->
             <div class="input-group mb-3">
                 <label for="ulastname" class="input-group-text">Lastname</label>
-                <input type="text" class="form-control" id="ulastname"  name="ulastname"
+                <input type="text" class="form-control" name="ulastname"
                 value="<?= $users->lastname; ?>" placeholder="Enter your lastname" required>
             </div>
             <!-- lastname-->
             <div class="input-group mb-3">
                 <label for="usch_id_no" class="input-group-text">School ID No.</label>
-                <input type="text" class="form-control" id="usch_id_no"  name="usch_id_no"
+                <input type="text" class="form-control" name="usch_id_no"
                 value="<?= $users->sch_id_no; ?>" placeholder="Enter school ID no." required>
             </div>
             <!-- email -->
             <div class="input-group mb-3">
                 <label for="uemail" class="input-group-text">Email address</label>
-                <input type="email" class="form-control" id="uemail" name="uemail"
+                <input type="email" class="form-control" name="uemail"
                 value="<?= $users->email; ?>" placeholder="Enter your email add" required>
             </div>
             <!-- Username -->
             <div class="input-group mb-3">
                 <label for="uusername" class="input-group-text">Username</label>
-                <input type="email" class="form-control" id="uusername" name="uusername" 
+                <input type="email" class="form-control" name="uusername" 
                 value="<?= $users->username; ?>" placeholder="email@example.com" required>
             </div>
             <!-- Password -->
             <div class="input-group mb-3">
                 <label for="upassword" class="input-group-text">Password</label>
-                <input type="text" class="form-control" id="upassword" name="upassword" 
+                <input type="text" class="form-control" name="upassword" 
                 value="<?= $users->password; ?>" placeholder="Enter your password" required>
             </div>
                 <button type="submit" class="btn btn-primary form-control" name="update">
@@ -67,6 +67,4 @@
     </div>
   </div>
 </div>
-
-<script src="../assets/updateToggle.js"></script>
 

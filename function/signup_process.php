@@ -5,7 +5,7 @@ require_once '../connection/DBconnection.php';
 
 // Check if the form is submitted
 if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastname'])
-    && isset($_POST['sch_id_no']) && isset($_POST['email']) && isset($_POST['username']) 
+    && isset($_POST['sch_id_no']) && isset($_POST['email']) && isset($_POST['cusername']) 
     && isset($_POST['cpassword'])) 
 {
 
@@ -18,7 +18,7 @@ if (isset($_POST['role']) && isset($_POST['firstname']) && isset($_POST['lastnam
   $lastname = $_POST['lastname'];
   $sch_id_no = $_POST['sch_id_no'];
   $email = $_POST['email'];
-  $username = $_POST['username'];
+  $username = $_POST['cusername'];
   $password = $_POST['cpassword'];
 
 
