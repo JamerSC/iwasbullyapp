@@ -24,8 +24,8 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
   try
   {
       // Check if the username is already taken
-      $stmt = $conn->prepare("SELECT * FROM users WHERE username=:username");
-      $stmt->execute(['username' => $createUsername]);
+      $stmt = $conn->prepare("SELECT * FROM Users WHERE username=:Username");
+      $stmt->execute(['Username' => $createUsername]);
       $user = $stmt->fetch();
 
       if ($user) 
@@ -39,23 +39,23 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
       {
 
         // Insert user data into database
-        $stmt = $conn->prepare("INSERT INTO users 
-        (role, username, password, firstname, lastname, sch_id_no, email, status) 
-        VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :status)");
+        $stmt = $conn->prepare("INSERT INTO Users 
+        (UserRole , Username, Password, Firstname, Lastname, SchoolIDNumber, Email, UserStatus) 
+        VALUES (:UserRole, :Username, :Password, :Firstname, :Lastname, :SchoolIDNumber, :Email, :UserStatus)");
 
         // Validate password against the regular expressions
         if (preg_match($password_regex, $createPassword)) 
         {
           $stmt->execute
           ([
-              'role' => $createRole,
-              'username' => $createUsername,
-              'password' => $createPassword,
-              'firstname' => $createFirstname, 
-              'lastname' => $createLastname,
-              'sch_id_no' => $createSchoolIDNo,
-              'email' => $createEmail,
-              'status' => $status
+              'UserRole' => $createRole,
+              'Username' => $createUsername,
+              'Password' => $createPassword,
+              'Firstname' => $createFirstname, 
+              'Lastname' => $createLastname,
+              'SchoolIDNumber' => $createSchoolIDNo,
+              'Email' => $createEmail,
+              'UserStatus' => $status
           ]);
 
           echo " <script>alert('Created account succesfuly!!')</script>";

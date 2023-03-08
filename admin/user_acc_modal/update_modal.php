@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="updateAccount_<?= $users->user_id; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="updateAccount_<?= $users->UserID; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,15 +7,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="user_account/update_account.php?id=<?= $users->user_id; ?>">
+        <form method="POST" action="user_account/update_account.php?id=<?= $users->UserID; ?>">
            <!-- user type -->
             <div class="input-group mb-3">
             <select class="form-select" name="updateRole">
-                <option selected><?= ucfirst($users->role); ?></option>
-                <option value="2">Student</option>
-                <option value="3">Teacher</option>
-                <option value="4">Staff</option>
-                <option value="5">Intern</option>
+                <option selected><?= $users->UserRole; ?></option>
+                <option value="2">Office Staff</option>
+                <option value="3">Intern</option>
+                <option value="4">Student</option>
+                <option value="5">Teacher</option>
             </select>
             <label class="input-group-text" for="updateRole">User type</label>
             </div>
@@ -23,37 +23,37 @@
             <div class="input-group mb-3">
                 <label for="updateFirstname" class="input-group-text">Firstname</label>
                 <input type="text" class="form-control" name="updateFirstname" 
-                value="<?= $users->firstname; ?>" placeholder="Enter your firstname" required>
+                value="<?= $users->Firstname; ?>" placeholder="Enter your firstname" required>
             </div>
             <!-- lastname-->
             <div class="input-group mb-3">
                 <label for="updateLastname" class="input-group-text">Lastname</label>
                 <input type="text" class="form-control" name="updateLastname"
-                value="<?= $users->lastname; ?>" placeholder="Enter your lastname" required>
+                value="<?= $users->Lastname; ?>" placeholder="Enter your lastname" required>
             </div>
             <!-- lastname-->
             <div class="input-group mb-3">
-                <label for="updateSchoolIDNo" class="input-group-text">School ID No.</label>
-                <input type="text" class="form-control" name="updateSchoolIDNo"
-                value="<?= $users->sch_id_no; ?>" placeholder="Enter school ID no." required>
+                <label for="updateSchoolIDNumber" class="input-group-text">School ID No.</label>
+                <input type="text" class="form-control" name="updateSchoolIDNumber"
+                value="<?= $users->SchoolIDNumber; ?>" placeholder="Enter school ID no." required>
             </div>
             <!-- email -->
             <div class="input-group mb-3">
                 <label for="updateEmail" class="input-group-text">Email address</label>
                 <input type="email" class="form-control" name="updateEmail"
-                value="<?= $users->email; ?>" placeholder="Enter your email add" required>
+                value="<?= $users->Email; ?>" placeholder="Enter your email add" required>
             </div>
             <!-- Username -->
             <div class="input-group mb-3">
                 <label for="updateUsername" class="input-group-text">Username</label>
                 <input type="email" class="form-control" name="updateUsername" 
-                value="<?= $users->username; ?>" placeholder="email@example.com" required>
+                value="<?= $users->Username; ?>" placeholder="email@example.com" required>
             </div>
             <!-- Password -->
             <div class="input-group mb-3">
                 <label for="updatePassword" class="input-group-text">Password</label>
                 <input type="text" class="form-control" name="updatePassword" 
-                value="<?= $users->password; ?>" placeholder="Enter your password" required>
+                value="<?= $users->Password; ?>" placeholder="Enter your password" required>
             </div>
             <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

@@ -1,6 +1,6 @@
 <!-- Activate account modal-->
 
-<div class="modal fade" id="activateAccount_<?= $users->user_id; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="activateAccount_<?= $users->UserID; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,11 +8,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      Are you sure you want to activate <strong> <?= $users->firstname ?> <?= $users->lastname ?> </strong> ?
+      Are you sure you want to activate <strong> <?= $users->Firstname ?> <?= $users->Lastname ?> </strong> ?
       </div>
       <div class="modal-footer">
         <a type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</a>
-        <a type="button" class="btn btn-primary" href="user_account/activate_account.php?id=<?= $users->user_id; ?>">Please Confirm</a>
+        <a type="button" class="btn btn-primary" href="user_account/activate_account.php?id=<?= $users->UserID; ?>">Please Confirm</a>
       </div>
     </div>
   </div>

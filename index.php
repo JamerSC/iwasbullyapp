@@ -53,8 +53,8 @@ require 'components/indexnav.php';
                         <label class="input-group-text" for="createRole">User type</label>
                         <select class="form-select" id="createRole" name="createRole">
                             <option selected disabled>Select your user type.</option>
-                            <option value="2">Student</option>
-                            <option value="3">Teacher</option>
+                            <option value="4">Student</option>
+                            <option value="5">Teacher</option>
                         </select>
                         </div>
                         <!-- firstname -->

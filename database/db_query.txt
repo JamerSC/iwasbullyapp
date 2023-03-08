@@ -13,6 +13,23 @@ CREATE TABLE users (
   PRIMARY KEY (user_id)
 );
 
+//NEW USER TABLE FORMAT
+CREATE TABLE Users (
+    UserID INT NOT NULL AUTO_INCREMENT,
+    UserRole ENUM('Councilor', 'Staff', 'Intern', 'Student', 'Teacher') NOT NULL,    
+    Firstname VARCHAR(50) NOT NULL,
+    Lastname VARCHAR(50) NOT NULL,
+    SchoolIDNumber VARCHAR(20) NOT NULL,
+    Email VARCHAR(50) NOT NULL,
+    Username VARCHAR(50) NOT NULL,
+    Password VARCHAR(50) NOT NULL,
+    CreatedBy INT NOT NULL,
+    createdDate datetime DEFAULT current_timestamp(),
+    ModifiedBy INT NOT NULL,
+    ModifiedDate timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+    UserStatus BOOLEAN,
+    PRIMARY KEY (UserID)
+);
 
 REPORT TABLE
 

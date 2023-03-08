@@ -10,7 +10,7 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
     && isset($_POST['createPassword'])) 
 {
 
-  $createdBy = $_SESSION['role']; //need to change as user_id INT
+  $CreatedBy = $_SESSION['UserID']; //need to change as user_id INT
   // Get form data
   $createRole = $_POST['createRole'];
   $createFirstname = $_POST['createFirstname'];
@@ -20,14 +20,14 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
   $createUsername = $_POST['createUsername'];
   $createPassword = $_POST['createPassword'];
   //Status to validate account
-  $status = 1;
+  $UserStatus = 1;
   // Define the regular expression patterns for username and password
   $password_regex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/";
   try
   {
     // Check if the username is already taken
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username=:username");
-    $stmt->execute(['username' => $createUsername]);
+    $stmt = $conn->prepare("SELECT * FROM Users WHERE Username=:Username");
+    $stmt->execute(['Username' => $createUsername]);
     $user = $stmt->fetch();
       if ($user) 
       {
@@ -41,20 +41,20 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
         {
 
           // Insert user data into database
-          $stmt = $conn->prepare("INSERT INTO users 
-          (role, username, password, firstname, lastname, sch_id_no, email, status, created_by) 
-          VALUES (:role, :username, :password, :firstname, :lastname, :schoolIdNo, :email, :status, :createdBy)");
+          $stmt = $conn->prepare("INSERT INTO Users 
+          (UserRole, Username, Password, Firstname, Lastname, SchoolIDNumber, Email, UserStatus, CreatedBy) 
+          VALUES (:UserRole, :Username, :Password, :Firstname, :Lastname, :SchoolIDNumber, :Email, :UserStatus, :CreatedBy)");
           $stmt->execute
           ([
-              'role' => $createRole,
-              'username' => $createUsername,
-              'password' => $createPassword,
-              'firstname' => $createFirstname, 
-              'lastname' => $createLastname,
-              'schoolIdNo' => $createSchoolIDNo,
-              'email' => $createEmail,
-              'status' => $status,
-              'createdBy' => $createdBy
+              'UserRole' => $createRole,
+              'Username' => $createUsername,
+              'Password' => $createPassword,
+              'Firstname' => $createFirstname, 
+              'Lastname' => $createLastname,
+              'SchoolIDNumber' => $createSchoolIDNo,
+              'Email' => $createEmail,
+              'UserStatus' => $UserStatus,
+              'CreatedBy' => $CreatedBy
           ]);
 
           echo " <script>alert('Created User Account Succesfuly!!')</script>";
