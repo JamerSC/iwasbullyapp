@@ -10,7 +10,7 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
     && isset($_POST['createPassword'])) 
 {
 
-  $createdBy = $_SESSION['role']; //need to change as user_id
+  $createdBy = $_SESSION['role']; //need to change as user_id INT
   // Get form data
   $createRole = $_POST['createRole'];
   $createFirstname = $_POST['createFirstname'];
@@ -43,7 +43,7 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
           // Insert user data into database
           $stmt = $conn->prepare("INSERT INTO users 
           (role, username, password, firstname, lastname, sch_id_no, email, status, created_by) 
-          VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :status, :created_by)");
+          VALUES (:role, :username, :password, :firstname, :lastname, :schoolIdNo, :email, :status, :createdBy)");
           $stmt->execute
           ([
               'role' => $createRole,
@@ -51,10 +51,10 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
               'password' => $createPassword,
               'firstname' => $createFirstname, 
               'lastname' => $createLastname,
-              'sch_id_no' => $createSchoolIDNo,
+              'schoolIdNo' => $createSchoolIDNo,
               'email' => $createEmail,
               'status' => $status,
-              'created_by' => $createdBy
+              'createdBy' => $createdBy
           ]);
 
           echo " <script>alert('Created User Account Succesfuly!!')</script>";
