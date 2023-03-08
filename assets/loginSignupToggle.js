@@ -15,7 +15,7 @@ function loginVisibilityPassword() {
   }
 //Signup 
   function signupVisibilityPassword() {
-    var passwordInput = document.getElementById("cpassword");
+    var passwordInput = document.getElementById("createPassword");
     var iconEye = document.getElementById("iconEyeSignup");
     
     if (passwordInput.type === "password") {

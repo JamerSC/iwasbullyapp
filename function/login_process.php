@@ -56,9 +56,7 @@ require_once '../connection/DBconnection.php';
             {
                 echo " <script>alert('Your Account is deactivated!!')</script>";
                 echo "<script>window.location = '../index.php?error=1'</script>";
-            }
-
-            
+            }            
              
          } 
          else 

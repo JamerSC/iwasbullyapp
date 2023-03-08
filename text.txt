@@ -1,0 +1,9 @@
+//Sign up
+createPassword
+createUsername
+createEmail
+createSchoolIDNo
+createLastname
+createFirstname
+createRole
+
