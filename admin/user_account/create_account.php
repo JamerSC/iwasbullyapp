@@ -4,34 +4,30 @@ session_start();
 
 require_once 'connection.php';
 
-if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8lastname'])
-    && isset($_POST['c8sch_id_no']) && isset($_POST['c8email']) && isset($_POST['c8username']) 
-    && isset($_POST['c8password'])) 
+// Check if the form is submitted
+if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_POST['createLastname'])
+    && isset($_POST['createSchoolIDNo']) && isset($_POST['createEmail']) && isset($_POST['createUsername']) 
+    && isset($_POST['createPassword'])) 
 {
 
+  $CreatedBy = $_SESSION['UserID']; //need to change as user_id INT
+  // Get form data
+  $createRole = $_POST['createRole'];
+  $createFirstname = $_POST['createFirstname'];
+  $createLastname = $_POST['createLastname'];
+  $createSchoolIDNo = $_POST['createSchoolIDNo'];
+  $createEmail = $_POST['createEmail'];
+  $createUsername = $_POST['createUsername'];
+  $createPassword = $_POST['createPassword'];
+  //Status to validate account
+  $UserStatus = 1;
+  // Define the regular expression patterns for username and password
+  $password_regex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/";
   try
   {
-
-
-    // Define the regular expression patterns for username and password
-    $password_regex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/";
-
-    $created_by = $_SESSION['role'];
-
-    $status = 1;
-    // Get form data
-    $role = $_POST['c8role'];
-    $firstname = $_POST['c8firstname'];
-    $lastname = $_POST['c8lastname'];
-    $sch_id_no = $_POST['c8sch_id_no'];
-    $email = $_POST['c8email'];
-    $username = $_POST['c8username'];
-    $password = $_POST['c8password'];
-    
-
     // Check if the username is already taken
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username=:username");
-    $stmt->execute(['username' => $username]);
+    $stmt = $conn->prepare("SELECT * FROM Users WHERE Username=:Username");
+    $stmt->execute(['Username' => $createUsername]);
     $user = $stmt->fetch();
       if ($user) 
       {
@@ -41,25 +37,24 @@ if (isset($_POST['c8role']) && isset($_POST['c8firstname']) && isset($_POST['c8l
       else 
       {
         // Validate password against the regular expressions
-        if (preg_match($password_regex, $password)) 
+        if (preg_match($password_regex, $createPassword)) 
         {
 
           // Insert user data into database
-          $stmt = $conn->prepare("INSERT INTO users 
-          (role, username, password, firstname, lastname, sch_id_no, email, created_by, status) 
-          VALUES (:role, :username, :password, :firstname, :lastname, :sch_id_no, :email, :created_by, :status)");
+          $stmt = $conn->prepare("INSERT INTO Users 
+          (UserRole, Username, Password, Firstname, Lastname, SchoolIDNumber, Email, UserStatus, CreatedBy) 
+          VALUES (:UserRole, :Username, :Password, :Firstname, :Lastname, :SchoolIDNumber, :Email, :UserStatus, :CreatedBy)");
           $stmt->execute
           ([
-              'role' => $role,
-              'username' => $username,
-              'password' => $password,
-              'firstname' => $firstname, 
-              'lastname' => $lastname,
-              'sch_id_no' => $sch_id_no,
-              'email' => $email,
-              'created_by' => $created_by,
-              'status' => $status
-
+              'UserRole' => $createRole,
+              'Username' => $createUsername,
+              'Password' => $createPassword,
+              'Firstname' => $createFirstname, 
+              'Lastname' => $createLastname,
+              'SchoolIDNumber' => $createSchoolIDNo,
+              'Email' => $createEmail,
+              'UserStatus' => $UserStatus,
+              'CreatedBy' => $CreatedBy
           ]);
 
           echo " <script>alert('Created User Account Succesfuly!!')</script>";

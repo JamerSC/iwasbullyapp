@@ -8,45 +8,46 @@ if(isset($_POST['update']))
 {
     try
     {
-        $modified_by = $_SESSION['role'];
+        $ModifiedBy = $_SESSION['UserID']; //need to update INT user id
 
-        $id = $_GET['id'];
+        $UserID = $_GET['id'];
         
         
-        $role = $_POST['urole'];
-        $firstname = $_POST['ufirstname'];
-        $lastname = $_POST['ulastname'];
-        $sch_id_no = $_POST['usch_id_no'];
-        $email = $_POST['uemail'];
-        $username = $_POST['uusername'];
-        $password = $_POST['upassword'];
+        $updateRole = $_POST['updateRole'];
+        $updateFirstname = $_POST['updateFirstname'];
+        $updateLastname = $_POST['updateLastname'];
+        $updateSchoolIDNumber = $_POST['updateSchoolIDNumber'];
+        $updateEmail = $_POST['updateUsername'];
+        $updateUsername = $_POST['updateUsername'];
+        $updatePassword = $_POST['updatePassword'];
 
         $stmt = $conn->prepare
         ("
-            UPDATE users SET
-                role = :role,
-                username = :username,
-                password = :password,
-                firstname = :firstname, 
-                lastname = :lastname,
-                sch_id_no = :sch_id_no,
-                email = :email,
-                modified_by = :modified_by
+            UPDATE Users 
+                SET
+                    UserRole = :UserRole,
+                    Username = :Username,
+                    Password = :Password,
+                    Firstname = :Firstname, 
+                    Lastname = :Lastname,
+                    SchoolIDNumber = :SchoolIDNumber,
+                    Email = :Email,
+                    ModifiedBy = :ModifiedBy
                 WHERE 
-                    user_id= :user_id
+                    UserID= :UserID
         ");      
              
         $stmt->execute
         ([
-              'role' => $role,
-              'username' => $username,
-              'password' => $password,
-              'firstname' => $firstname, 
-              'lastname' => $lastname,
-              'sch_id_no' => $sch_id_no,
-              'email' => $email,
-              'modified_by' => $modified_by,
-              'user_id' => $id
+              'UserRole' => $updateRole,
+              'Username' => $updateUsername,
+              'Password' => $updatePassword,
+              'Firstname' => $updateFirstname, 
+              'Lastname' => $updateLastname,
+              'SchoolIDNumber' => $updateSchoolIDNumber,
+              'Email' => $updateEmail,
+              'ModifiedBy' => $ModifiedBy,
+              'UserID' => $UserID
         ]);
 
             echo "

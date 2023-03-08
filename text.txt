@@ -1,0 +1,23 @@
+//Sign up
+updatePassword
+updateUsername
+updateEmail
+updateSchoolIDNo
+updateLastname
+updateFirstname
+updateRole
+
+updatePassword
+updateUsername
+updateEmail
+updateSchoolIDNo
+updateLastname
+updateFirstname
+updateRole
+
+
+//Signup
+//login
+//assets js
+//user_list
+/update account

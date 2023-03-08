@@ -48,7 +48,7 @@ if(isset($_POST['date']) && isset($_POST['time'])
     <style>
         .container {
             align-items:flex-start;
-            justify-content: space-evenly;
+            justify-content: stretch;
             display: flex;
             height: 100vh;
         }

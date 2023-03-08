@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
         <!-- < ?php if($users->role == 'councilor') { echo 'display: none;'; } ? > -->
-      <?php if($role == 'councilor' || $role == 'staff' || $role == 'intern'  ): ?>
+      <?php if($UserRole == 'Councilor' || $UserRole == 'Staff' || $UserRole == 'Intern'  ): ?>
       
         <li class="nav-item">
           <a class="nav-link" href="dashboard.php">
@@ -32,7 +32,7 @@
         </li>
       <?php endif; ?>
 
-      <?php if($role == 'student' || $role == 'teacher'): ?>
+      <?php if($UserRole == 'Student' || $UserRole == 'Teacher'): ?>
         <li class="nav-item">
           <a class="nav-link" href="home.php">
           <i class="bi bi-house"></i> Home</a>
@@ -42,13 +42,13 @@
           <i class="bi bi-calendar"></i> Schedule</a>
         </li>
       <?php endif; ?>
-      <?php if($role == 'councilor' || $role == 'student' || $role == 'teacher'): ?>
+      <?php if($UserRole == 'Councilor' || $UserRole == 'Student' || $UserRole == 'Teacher'): ?>
         <li class="nav-item">
           <a class="nav-link" href="chat.php">
           <i class="bi bi-chat-left-dots"></i> Chat</a>
         </li>
       <?php endif; ?>
-      <?php if($role == 'student' || $role == 'teacher'): ?>
+      <?php if($UserRole == 'Student' || $UserRole == 'Teacher'): ?>
           <li class="nav-item">
           <a class="nav-link" href="profile.php">
           <i class="bi bi-person-circle"></i> Profile</a>
@@ -63,7 +63,7 @@
       </ul>
         <span class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          <?php echo '<b>['.ucfirst($role)."] ".$fname." ".$lname.'</b>'; ?>
+          <?php echo '<b>['.$UserRole."] ".$Firstname." ".$Lastname.'</b>'; ?>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
             <li class="dropdown-item">

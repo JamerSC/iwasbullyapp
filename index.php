@@ -50,47 +50,47 @@ require 'components/indexnav.php';
                     <form method="post" action="function/signup_process.php">
                        <!-- user type -->
                         <div class="input-group mb-3">
-                        <label class="input-group-text" for="role">User type</label>
-                        <select class="form-select" id="role" name="role">
+                        <label class="input-group-text" for="createRole">User type</label>
+                        <select class="form-select" id="createRole" name="createRole">
                             <option selected disabled>Select your user type.</option>
-                            <option value="2">Student</option>
-                            <option value="3">Teacher</option>
+                            <option value="4">Student</option>
+                            <option value="5">Teacher</option>
                         </select>
                         </div>
                         <!-- firstname -->
                         <div class="input-group mb-3">
-                            <label for="firstname" class="input-group-text">Firstname</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" 
+                            <label for="createFirstname" class="input-group-text">Firstname</label>
+                            <input type="text" class="form-control" id="createFirstname" name="createFirstname" 
                             placeholder="Enter your first name" required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="lastname" class="input-group-text">Lastname</label>
-                            <input type="text" class="form-control" id="lastname"  name="lastname"
+                            <label for="createLastname" class="input-group-text">Lastname</label>
+                            <input type="text" class="form-control" id="createLastname"  name="createLastname"
                             placeholder="Enter your last name" required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="sch_id_no" class="input-group-text">Sch. ID No.</label>
-                            <input type="text" class="form-control" id="sch_id_no"  name="sch_id_no"
+                            <label for="createSchoolIDNo" class="input-group-text">Sch. ID No.</label>
+                            <input type="text" class="form-control" id="createSchoolIDNo"  name="createSchoolIDNo"
                             placeholder="Enter school ID no." required>
                         </div>
                         <!-- email -->
                         <div class="input-group mb-3">
-                            <label for="email" class="input-group-text">Email add</label>
-                            <input type="email" class="form-control" id="email" name="email"
+                            <label for="createEmail" class="input-group-text">Email add</label>
+                            <input type="email" class="form-control" id="createEmail" name="createEmail"
                             placeholder="Enter your email add" required>
                         </div>
                         <!-- Username -->
                         <div class="input-group mb-3">
-                            <label for="cusername" class="input-group-text">Create Username</label>
-                            <input type="email" class="form-control" id="cusername" name="cusername" 
+                            <label for="createUsername" class="input-group-text">Create Username</label>
+                            <input type="email" class="form-control" id="createUsername" name="createUsername" 
                             placeholder="email@example.com" required>
                         </div>
                         <!-- Password -->
                         <div class="input-group mb-3">
-                            <label for="cpassword" class="input-group-text">Create Password</label>
-                            <input type="password" class="form-control" id="cpassword" name="cpassword" 
+                            <label for="createPassword" class="input-group-text">Create Password</label>
+                            <input type="password" class="form-control" id="createPassword" name="createPassword" 
                             placeholder="Example@123" required>
                             <button class="btn btn-secondary" type="button" id="showSignupPassword">
                             <i id="iconEyeSignup" class="bi bi-eye"></i>
@@ -111,6 +111,6 @@ require 'components/indexnav.php';
 </div>
 
     <!-- JS password toggle -->
-    <script src="assets/loginSignupToggle.js"></script>
+    <script src="assets/loginSignupToggle.js?v1"></script>
     
 <?php require 'components/footer.php' ;?>

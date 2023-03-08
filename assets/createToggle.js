@@ -1,6 +1,6 @@
 //Create
 function createVisibilityPassword() {
-    var passwordInput = document.getElementById("c8password");
+    var passwordInput = document.getElementById("createPassword");
     var iconEye = document.getElementById("iconEyeCreate");
     
     if (passwordInput.type === "password") {

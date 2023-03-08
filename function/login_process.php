@@ -9,11 +9,11 @@ require_once '../connection/DBconnection.php';
         $password = $_POST['password'];
 
         //include password if no hash
-        $stmt = $conn->prepare("SELECT * FROM users WHERE 
-        username = :username AND password = :password");
+        $stmt = $conn->prepare("SELECT * FROM Users WHERE 
+        Username = :Username AND Password = :Password");
         $stmt->execute([
-            ':username' => $username ,
-            ':password' => $password
+            ':Username' => $username ,
+            ':Password' => $password
         ]);
         
         $fetch = $stmt->fetch(PDO::FETCH_ASSOC); //fetch 1 value
@@ -22,25 +22,25 @@ require_once '../connection/DBconnection.php';
          if($row > 0) 
          {
             //Account status validation
-            if($fetch['status'] === 1) 
+            if($fetch['UserStatus'] === 1) 
             {
-                if ($fetch['role'] === 'councilor' || $fetch['role'] === 'staff' || $fetch['role'] === 'intern') 
+                if ($fetch['UserRole'] === 'Councilor' || $fetch['UserRole'] === 'Staff' || $fetch['UserRole'] === 'Intern') 
                 {
-                    $_SESSION['id'] = $fetch['user_id'];
-                    $_SESSION['role'] = $fetch['role'];
-                    $_SESSION['fname'] = $fetch['firstname'];
-                    $_SESSION['lname'] = $fetch['lastname'];            
+                    $_SESSION['UserID'] = $fetch['UserID'];
+                    $_SESSION['UserRole'] = $fetch['UserRole'];
+                    $_SESSION['Firstname'] = $fetch['Firstname'];
+                    $_SESSION['Lastname'] = $fetch['Lastname'];            
                     //admin folder
                     echo " <script>alert('Login successfully!!')</script>";
                     echo "<script>window.location = '../admin/dashboard.php'</script>";
                     //header('Location: ../admin/dashboard.php');
                 } 
-                elseif($fetch['role'] === 'student' || $fetch['role'] === 'teacher' )
+                elseif($fetch['UserRole'] === 'Student' || $fetch['UserRole'] === 'Teacher' )
                 {
-                    $_SESSION['id'] = $fetch['user_id'];
-                    $_SESSION['role'] = $fetch['role'];
-                    $_SESSION['fname'] = $fetch['firstname'];
-                    $_SESSION['lname'] = $fetch['lastname']; 
+                    $_SESSION['UserID'] = $fetch['UserID'];
+                    $_SESSION['UserRole'] = $fetch['UserRole'];
+                    $_SESSION['Firstname'] = $fetch['Firstname'];
+                    $_SESSION['Lastname'] = $fetch['Lastname'];    
                     
                     echo " <script>alert('Login successfully!!')</script>";
                     echo "<script>window.location = '../admin/home.php'</script>";
@@ -56,9 +56,7 @@ require_once '../connection/DBconnection.php';
             {
                 echo " <script>alert('Your Account is deactivated!!')</script>";
                 echo "<script>window.location = '../index.php?error=1'</script>";
-            }
-
-            
+            }            
              
          } 
          else 
