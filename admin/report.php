@@ -158,7 +158,7 @@ require '../components/navigation.php';
           </div>
            <!-- Attachments -->
           <div class="row g-3 mb-3">
-            <div class="fw-bold">Attachments <i class="fw-lighter">(If available)</i></div>
+            <div class="fw-bold">Attachments<i class="fw-lighter">(If available)</i></div>
             <div class="col">
               <label class="input-group-text" for="ImageProof">Image</label>
               <input type="file" class="form-control-file" name="ImageProof">
@@ -178,7 +178,7 @@ require '../components/navigation.php';
           </div>
           <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Save Report</button>
+            <button type="submit" class="btn btn-primary" name="report">Save Report</button>
           </div>
         </form>
       </div>

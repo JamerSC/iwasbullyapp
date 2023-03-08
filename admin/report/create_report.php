@@ -5,14 +5,10 @@ session_start();
 require_once 'connection.php';
 
 // Check if the form is submitted
-if (isset($_POST['C_Firstname']) && isset($_POST['C_Lastname']) && isset($_POST['C_SchoolIDNumber'])
-    && isset($_POST['C_UserRole']) && isset($_POST['C_Email']) && isset($_POST['C_ContactNumber']) &&
-    isset($_POST['R_Firstname']) && isset($_POST['R_Lastname']) && isset($_POST['R_SchoolIDNumber'])
-    && isset($_POST['R_UserRole']) && isset($_POST['R_Email']) && isset($_POST['R_ContactNumber'])
-    && isset($_POST['TypeOfBullying']) && isset($_POST['ImageProof']) && isset($_POST['VideoLink']) 
-    && isset($_POST['VideoLink']) && isset($_POST['Remarks'])
-   ) 
+if (isset($_POST['report'])) 
 {
+  try
+  {
   //For Foreign key
   $UserID = $_SESSION['UserID'];
 
@@ -36,12 +32,11 @@ if (isset($_POST['C_Firstname']) && isset($_POST['C_Lastname']) && isset($_POST[
   $VideoLink = $_POST['VideoLink'];
   $Remarks = $_POST['Remarks'];
 
-  //$CreatedBy = $_SESSION['UserID'];
+  $CreatedBy = $_SESSION['UserID'];
   //Status to validate account
   $ReportStatus = 1;
 
-  try
-  {
+
   
     // Insert user data into database
     $stmt = $conn->prepare("INSERT INTO Report 
@@ -72,12 +67,12 @@ if (isset($_POST['C_Firstname']) && isset($_POST['C_Lastname']) && isset($_POST[
       'ImageProof' => $ImageProof, 
       'VideoLink' => $VideoLink, 
       'Remarks' => $Remarks,
-      'CreatedBy' => $UserID, 
+      'CreatedBy' => $CreatedBy, 
       'ReportStatus' => $ReportStatus
     ]);
 
-    //echo " <script>alert('Created Report Succesfuly!!')</script>";
-    //echo "<script>window.location = '../report.php'</script>";
+    echo " <script>alert('Created Report Succesfuly!!')</script>";
+    echo "<script>window.location = '../report.php'</script>";
     //header("location: login.php"); // Redirect to report page
     //exit();
   }
