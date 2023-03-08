@@ -33,6 +33,34 @@ CREATE TABLE Users (
 
 REPORT TABLE
 
+CREATE TABLE Report (
+     ReportID INT NOT NULL AUTO_INCREMENT,
+     UserID INT NOT NULL, 
+     C_Firstname VARCHAR(50) NOT NULL,
+     C_Lastname VARCHAR(50) NOT NULL,
+     C_SchoolIDNumber VARCHAR(20) NOT NULL,
+     C_UserRole ENUM('Junior', 'Senior', 'Teacher', 'Guidance Office') NOT NULL,
+     C_Email VARCHAR(50) NOT NULL,
+     C_ContactNumber VARCHAR(20) NOT NULL,
+     R_Firstname VARCHAR(50) NOT NULL,
+     R_Lastname VARCHAR(50) NOT NULL, 
+     R_SchoolIDNumber VARCHAR(20) NOT NULL, 
+     R_UserRole ENUM('Junior', 'Senior', 'Teacher') NOT NULL,
+     R_Email VARCHAR(50) NOT NULL, 
+     R_ContactNumber VARCHAR(20) NOT NULL, 
+     ActOfBullying ENUM('Verbal', 'Physical', 'Social', 'Cyberbullying') NOT NULL,
+     ImageProof1 TEXT,
+     VideoLink TEXT,
+     Remarks TEXT,
+     CreatedBy INT,
+     CreatedDate datetime DEFAULT current_timestamp(),
+     ModifiedBy INT,
+     ModifiedDate timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+     ReportStatus BOOLEAN,
+     PRIMARY KEY (ReportID), 
+     FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
 Complainant
 c_firstname (varchar)
 c_lastname (varchar)
