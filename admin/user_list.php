@@ -105,8 +105,8 @@ require '../components/navigation.php';
                     <form method="POST" action="user_account/create_account.php">
                        <!-- user type -->
                         <div class="input-group mb-3">
-                        <label class="input-group-text" for="c8role">User type</label>
-                        <select class="form-select" id="c8role" name="c8role">
+                        <label class="input-group-text" for="createRole">User type</label>
+                        <select class="form-select" id="createRole" name="createRole">
                             <option selected disabled>Choose</option>
                             <option value="2">Student</option>
                             <option value="3">Teacher</option>
@@ -116,38 +116,38 @@ require '../components/navigation.php';
                         </div>
                         <!-- firstname -->
                         <div class="input-group mb-3">
-                            <label for="c8firstname" class="input-group-text">Firstname</label>
-                            <input type="text" class="form-control" id="c8firstname" name="c8firstname" 
+                            <label for="createFirstname" class="input-group-text">Firstname</label>
+                            <input type="text" class="form-control" id="createFirstname" name="createFirstname" 
                             placeholder="Enter firstname" required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="c8lastname" class="input-group-text">Lastname</label>
-                            <input type="text" class="form-control" id="c8lastname"  name="c8lastname"
+                            <label for="createLastname" class="input-group-text">Lastname</label>
+                            <input type="text" class="form-control" id="createLastname"  name="createLastname"
                             placeholder="Enter lastname" required>
                         </div>
                         <!-- lastname-->
                         <div class="input-group mb-3">
-                            <label for="c8sch_id_no" class="input-group-text">School ID #</label>
-                            <input type="text" class="form-control" id="c8sch_id_no"  name="c8sch_id_no"
+                            <label for="createSchoolIDNo" class="input-group-text">School ID #</label>
+                            <input type="text" class="form-control" id="createSchoolIDNo"  name="createSchoolIDNo"
                             placeholder="Enter school ID no." required>
                         </div>
                         <!-- email -->
                         <div class="input-group mb-3">
-                            <label for="c8email" class="input-group-text">Email</label>
-                            <input type="email" class="form-control" id="c8email" name="c8email"
+                            <label for="createEmail" class="input-group-text">Email</label>
+                            <input type="email" class="form-control" id="createEmail" name="createEmail"
                             placeholder="Enter email add" required>
                         </div>
                         <!-- Username -->
                         <div class="input-group mb-3">
-                            <label for="c8username" class="input-group-text">Username</label>
-                            <input type="email" class="form-control" id="c8username" name="c8username" 
+                            <label for="createUsername" class="input-group-text">Username</label>
+                            <input type="email" class="form-control" id="createUsername" name="createUsername" 
                             placeholder="email@example.com" required>
                         </div>
                         <!-- Password -->
                         <div class="input-group mb-3">
-                            <label for="c8password" class="input-group-text">Password</label>
-                            <input type="password" class="form-control" id="c8password" name="c8password" 
+                            <label for="createPassword" class="input-group-text">Password</label>
+                            <input type="password" class="form-control" id="createPassword" name="createPassword" 
                             placeholder="Example@123" required>
                             <button class="btn btn-secondary" type="button" id="showCreatePassword">
                             <i id="iconEyeCreate" class="bi bi-eye"></i>
@@ -163,7 +163,7 @@ require '../components/navigation.php';
             </div>
         </div>
 
-        <script src="../assets/createToggle.js"></script>
+        <script src="../assets/createToggle.js?v1"></script>
 
         
 
