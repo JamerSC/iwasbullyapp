@@ -15,7 +15,7 @@ require 'components/indexnav.php';
                     <form method="post" action="function/login_process.php">
                     <div class="input-group mb-3">
                         <label for="username" class="input-group-text">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" 
+                        <input type="email" class="form-control" id="username" name="username" 
                         placeholder="Enter your username"required>
                     </div>
                     <div class="input-group mb-3">
@@ -101,7 +101,7 @@ require 'components/indexnav.php';
                         </div>
                         <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <button type="submit" class="btn btn-primary" name="signup">Sign Up</button>
                         </div>
                     </form>
                 </div>
