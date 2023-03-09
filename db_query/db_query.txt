@@ -61,37 +61,28 @@ CREATE TABLE Report (
      FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
-Complainant
-c_firstname (varchar)
-c_lastname (varchar)
-c_sch_id_no (varchar)
-c_level (enum)
-c_email  (varchar)
-c_contact (varchar)
 
-Respondent
-r_firstname(varchar)
-r_lastname (varchar)
-r_sch_id_no (varchar)
-r_level (enum)
-r_email (varchar)
-r_contact (varchar)
+//APPOINMENT TABLE
 
-bullying_type (enum)
-
-image (varchar)
-link (text)
-
-remarks (text)
-
-Status (Actived/Inactived)
-
-created_by
-created_date
-
-modified_by
-modified_date
-
+CREATE TABLE Appointment (
+    AppointmentID INT NOT NULL AUTO_INCREMENT,
+    UserID INT NOT NULL,
+    ReportID INT NOT NULL,
+    ComplainantName VARCHAR(50),
+    RespondentName VARCHAR(50),
+    AppoinmentDate DATE,
+    AppointmentDay ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') NOT NULL,
+    StartTime TIME NOT NULL,
+    EndTime TIME NOT NULL,
+    CreatedBy INT, 
+    CreatedDate datetime DEFAULT current_timestamp(),
+    ModifiedBy INT,
+    ModifiedDate timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+    AppointmentStatus TINYINT(1) NOT NULL DEFAULT 1,
+    PRIMARY KEY (AppointmentID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (ReportID) REFERENCES Report(ReportID)
+);
 
 APPOINMENT TABLE
 

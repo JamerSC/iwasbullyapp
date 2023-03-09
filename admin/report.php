@@ -5,12 +5,20 @@ require_once '../connection/DBconnection.php';
 require '../components/header.php'; 
 require '../components/navigation.php';
 ?>
+
+<?php 
+    $stmt = $conn->prepare("SELECT * FROM Report;");
+    $stmt->execute();
+    $report = $stmt->fetchAll(PDO::FETCH_OBJ);    
+?>
 <div class="container  my-3">
   <h3 class="text-center">Complaint Report Records</h3>
+    <?php if($UserRole == 'Councilor' || $UserRole == 'Staff'): ?>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createNewReport">
     <i class="bi bi-person-plus"></i>
     Create Report
     </button>
+    <?php endif; ?>
 
       <div class="table-responsive my-3">
         <table class="table align-middle table-hover table-striped">
@@ -27,30 +35,34 @@ require '../components/navigation.php';
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
-              <td>Juan</td>
-              <td>Jose</td>
-              <td>Verbal</td>
+            <?php foreach($report as $reports): ?>
+              <td><?= $reports->ReportID; ?></td>
+              <td><?= $reports->C_Lastname; ?></td>
+              <td><?= $reports->R_Lastname; ?></td>
+              <td><?= $reports->TypeOfBullying; ?></td>
               <td>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewReport">
-                  View
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" 
+                data-bs-target="#viewReport_<?= $reports->ReportID; ?>">
+                <i class="bi bi-eye"> View</i>
                 </button>
               </td>
               <td>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#updateReport">
-                  Update
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" 
+                data-bs-target="#updateReport_<?= $reports->ReportID; ?>">
+                  <i class="bi bi-pencil-square"> Update</i>
                 </button>
               </td>
               <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAppointment">
-                  Create
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" 
+                data-bs-target="#createAppointment_<?= $reports->ReportID; ?>">
+                <i class="bi bi-calendar-plus"> Create</i>
                 </button>
               </td>
+              <?php include 'report_modal/view_report_modal.php'; ?>
+              <?php include 'report_modal/update_report_modal.php'; ?>
+              <?php include 'report_modal/create_appointment_modal.php'; ?>
             </tr>
-
-            <?php include 'report_modal/view_report_modal.php'; ?>
-            <?php include 'report_modal/update_report_modal.php'; ?>
-            <?php include 'report_modal/create_appointment_modal.php'; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
@@ -152,7 +164,7 @@ require '../components/navigation.php';
                 <option value="1">Verbal</option>
                 <option value="2">Physical</option>
                 <option value="3">Social</option>
-                <option value="3">Cyber</option>
+                <option value="4">Cyberbullying</option>
               </select>
             </div>
           </div>
