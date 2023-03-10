@@ -6,7 +6,7 @@ require '../components/navigation.php';
 
     $stmt = $conn->prepare("SELECT * FROM Appointment;");
     $stmt->execute();
-    $report = $stmt->fetchAll(PDO::FETCH_OBJ);    
+    $appointment = $stmt->fetchAll(PDO::FETCH_OBJ);    
 ?>
 <div class="container my-3">
   <h3 class="text-center">Counseling Appointment Schedule</h3>
@@ -27,14 +27,14 @@ require '../components/navigation.php';
             </tr>
           </thead>
           <tbody>
-          <?php foreach($report as $reports): ?>
+          <?php foreach($appointment as $appointments): ?>
             <tr>
-              <td><?= $reports->AppointmentID; ?></td>
-              <td><?= $reports->ReportID; ?></td>
-              <td><?= date("F d, Y", strtotime($reports->AppointmentDate)); ?></td>
-              <td><?= $reports->AppointmentDay; ?></td>
-              <td><?= date("h:i a", strtotime($reports->StartTime))?></td>
-              <td><?= date("h:i a", strtotime($reports->EndTime))?></td>
+              <td><?= $appointments->AppointmentID; ?></td>
+              <td><?= $appointments->ReportID; ?></td>
+              <td><?= date("F d, Y", strtotime($appointments->AppointmentDate)); ?></td>
+              <td><?= $appointments->AppointmentDay; ?></td>
+              <td><?= date("h:i a", strtotime($appointments->StartTime))?></td>
+              <td><?= date("h:i a", strtotime($appointments->EndTime))?></td>
               <td><button type="button" class="btn btn-primary">In-process</button></td>
               <td><button type="button" class="btn btn-secondary">View</button></td>
               <td><button type="button" class="btn btn-success">Update</button></td>
