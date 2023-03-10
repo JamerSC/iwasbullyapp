@@ -3,12 +3,9 @@ require '../function/session.php';
 require_once '../connection/DBconnection.php';
 require '../components/header.php'; 
 require '../components/navigation.php';
+
 ?>
-<?php 
-    $stmt = $conn->prepare("SELECT * FROM Users;");
-    $stmt->execute();
-    $user = $stmt->fetchAll(PDO::FETCH_OBJ);    
-?>
+
     <div class="container my-3">
         <h3 class="text-center">List of Users</h3>   
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
@@ -22,6 +19,11 @@ require '../components/navigation.php';
         </div>
         <div class="table-responsive my-3">
 <!-- User list table-->
+<?php
+    $stmt = $conn->prepare("SELECT * FROM Users;");
+    $stmt->execute();
+    $user = $stmt->fetchAll(PDO::FETCH_OBJ);    
+?>
             <table class="table align-middle table-hover table-striped">
                 <thead class="table-dark">
                     <tr>
