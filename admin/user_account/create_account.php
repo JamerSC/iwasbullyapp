@@ -5,9 +5,7 @@ session_start();
 require_once 'connection.php';
 
 // Check if the form is submitted
-if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_POST['createLastname'])
-    && isset($_POST['createSchoolIDNo']) && isset($_POST['createEmail']) && isset($_POST['createUsername']) 
-    && isset($_POST['createPassword'])) 
+if (isset($_POST['create']))
 {
 
   $CreatedBy = $_SESSION['UserID']; //need to change as user_id INT
@@ -36,37 +34,47 @@ if (isset($_POST['createRole']) && isset($_POST['createFirstname']) && isset($_P
       } 
       else 
       {
-        // Validate password against the regular expressions
-        if (preg_match($password_regex, $createPassword)) 
+        if(!empty($createRole))
         {
-
+        
           // Insert user data into database
           $stmt = $conn->prepare("INSERT INTO Users 
           (UserRole, Username, Password, Firstname, Lastname, SchoolIDNumber, Email, UserStatus, CreatedBy) 
           VALUES (:UserRole, :Username, :Password, :Firstname, :Lastname, :SchoolIDNumber, :Email, :UserStatus, :CreatedBy)");
-          $stmt->execute
-          ([
-              'UserRole' => $createRole,
-              'Username' => $createUsername,
-              'Password' => $createPassword,
-              'Firstname' => $createFirstname, 
-              'Lastname' => $createLastname,
-              'SchoolIDNumber' => $createSchoolIDNo,
-              'Email' => $createEmail,
-              'UserStatus' => $UserStatus,
-              'CreatedBy' => $CreatedBy
-          ]);
+          
+          // Validate password against the regular expressions
+          if (preg_match($password_regex, $createPassword)) 
+          {
+                $stmt->execute
+                ([
+                    'UserRole' => $createRole,
+                    'Username' => $createUsername,
+                    'Password' => $createPassword,
+                    'Firstname' => $createFirstname, 
+                    'Lastname' => $createLastname,
+                    'SchoolIDNumber' => $createSchoolIDNo,
+                    'Email' => $createEmail,
+                    'UserStatus' => $UserStatus,
+                    'CreatedBy' => $CreatedBy
+                ]);
 
-          echo " <script>alert('Created User Account Succesfuly!!')</script>";
-          echo "<script>window.location = '../user_list.php'</script>";
-          //header("location: login.php"); // Redirect to login page
-          exit();
+                echo " <script>alert('Created User Account Succesfuly!!')</script>";
+                echo "<script>window.location = '../user_list.php'</script>";
+                //header("location: login.php"); // Redirect to login page
+                exit();
+            }
+            else
+            {
+              echo " <script>alert('Invalid password format!')</script>";
+              echo "<script>window.location = '../user_list.php'</script>";
+            }
         }
         else
         {
-          echo " <script>alert('Invalid password format!')</script>";
-          echo "<script>window.location = '../user_list.php'</script>";
+          echo " <script>alert('Please select user type!!!')</script>";
+            echo "<script>window.location = '../user_list.php'</script>";
         }
+
       }
 
   }

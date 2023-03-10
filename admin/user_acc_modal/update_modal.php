@@ -3,13 +3,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Update User</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Update User No. <?= $users->UserID; ?></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="POST" action="user_account/update_account.php?id=<?= $users->UserID; ?>">
            <!-- user type -->
             <div class="input-group mb-3">
+            <label class="input-group-text" for="updateRole">User type</label>
             <select class="form-select" name="updateRole">
                 <option selected><?= $users->UserRole; ?></option>
                 <option value="2">Office Staff</option>
@@ -17,7 +18,6 @@
                 <option value="4">Student</option>
                 <option value="5">Teacher</option>
             </select>
-            <label class="input-group-text" for="updateRole">User type</label>
             </div>
             <!-- firstname -->
             <div class="input-group mb-3">

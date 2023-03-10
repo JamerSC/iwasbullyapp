@@ -4,11 +4,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Activate User</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Activate User No. <?= $users->UserID; ?></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      Are you sure you want to activate <strong> <?= $users->Firstname ?> <?= $users->Lastname ?> </strong> ?
+      Are you sure you want to activate<h1 class="modal-title fs-5" id="staticBackdropLabel"> <?= $users->Firstname ?> <?= $users->Lastname ?> ?</h1>
       </div>
       <div class="modal-footer">
         <a type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</a>

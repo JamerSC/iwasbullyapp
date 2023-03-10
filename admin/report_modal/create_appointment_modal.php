@@ -8,12 +8,12 @@
       </div>
       <div class="modal-body">
         <!-- Appointment form -->
-        <form method="post" action="report/create_appointment.php">
+        <form method="post" action="report/create_appointment.php?id=<?= $reports->ReportID; ?>">
 
          <div class="row g-3 mb-3">
               <div class="input-group col">
               <label class="input-group-text" for="day">Report No.</label>
-              <input type="text" class="form-control" value="<?= $reports->UserID; ?>" disabled>
+              <input type="text" class="form-control" value="<?= $reports->ReportID; ?>" disabled>
             </div>
             <div class="input-group col">
               <label class="input-group-text" for="day">Act of Bullying</label>
