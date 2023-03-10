@@ -9,35 +9,35 @@ if (isset($_POST['report']))
 {
   try
   {
-  //For Foreign key
-  $UserID = $_SESSION['UserID'];
+    //For Foreign key
+    $UserID = $_SESSION['UserID'];
 
-  //Complainant
-  $C_Firstname = $_POST['C_Firstname'];
-  $C_Lastname = $_POST['C_Lastname'];
-  $C_SchoolIDNumber = $_POST['C_SchoolIDNumber'];
-  $C_UserRole = $_POST['C_UserRole'];
-  $C_Email = $_POST['C_Email'];
-  $C_ContactNumber = $_POST['C_ContactNumber'];
-  //Respondent
-  $R_Firstname = $_POST['R_Firstname'];
-  $R_Lastname = $_POST['R_Lastname'];
-  $R_SchoolIDNumber = $_POST['R_SchoolIDNumber'];
-  $R_UserRole = $_POST['R_UserRole'];
-  $R_Email = $_POST['R_Email'];
-  $R_ContactNumber = $_POST['R_ContactNumber'];
-  //
-  $TypeOfBullying = $_POST['TypeOfBullying'];
-  $ImageProof = $_POST['ImageProof'];
-  $VideoLink = $_POST['VideoLink'];
-  $Remarks = $_POST['Remarks'];
+    //Complainant
+    $C_Firstname = $_POST['C_Firstname'];
+    $C_Lastname = $_POST['C_Lastname'];
+    $C_SchoolIDNumber = $_POST['C_SchoolIDNumber'];
+    $C_UserRole = $_POST['C_UserRole'];
+    $C_Email = $_POST['C_Email'];
+    $C_ContactNumber = $_POST['C_ContactNumber'];
+    //Respondent
+    $R_Firstname = $_POST['R_Firstname'];
+    $R_Lastname = $_POST['R_Lastname'];
+    $R_SchoolIDNumber = $_POST['R_SchoolIDNumber'];
+    $R_UserRole = $_POST['R_UserRole'];
+    $R_Email = $_POST['R_Email'];
+    $R_ContactNumber = $_POST['R_ContactNumber'];
+    //
+    $TypeOfBullying = $_POST['TypeOfBullying'];
+    $ImageProof = $_POST['ImageProof'];
+    $VideoLink = $_POST['VideoLink'];
+    $Remarks = $_POST['Remarks'];
 
-  $CreatedBy = $_SESSION['UserID'];
-  //Status to validate account
-  $ReportStatus = 1;
+    $CreatedBy = $_SESSION['UserID'];
+    //Status to validate account
+    $ReportStatus = 1;
 
 
-  
+    
     // Insert user data into database
     $stmt = $conn->prepare("INSERT INTO Report 
     (UserID, C_Firstname, C_Lastname, C_SchoolIDNumber, C_UserRole, C_Email, C_ContactNumber,

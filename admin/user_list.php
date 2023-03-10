@@ -10,7 +10,7 @@ require '../components/navigation.php';
         <h3 class="text-center">List of Users</h3>   
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <?php if($UserRole == 'Councilor'): ?>
-            <button class="btn btn-primary" 
+            <button class="btn btn-outline-primary" 
             data-bs-toggle="modal" data-bs-target="#createNewAccount">
             <i class="bi bi-person-plus"></i>
             Create Account
@@ -64,19 +64,19 @@ require '../components/navigation.php';
                             <td>
                             <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
                             data-bs-target="#updateAccount_<?= $users->UserID; ?>">
-                            <i class="bi bi-pencil-square"></i>
+                            <i class="bi bi-pencil-fill"></i>
                             </button>
                             </td>
                             <td>
                             <?php if($users->UserStatus == 0): ?>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" 
+                                <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" 
                                 data-bs-target="#activateAccount_<?= $users->UserID; ?>">
                                 <i class="bi bi-person-check">  Activate . .</i>
                                 </button>
                             <?php else: ?>
                                 <!-- echo 'style="display: none;"' ||  echo 'disabled';-->
                                 <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> 
-                                type="button" class="btn btn-danger" data-bs-toggle="modal" 
+                                type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
                                 data-bs-target="#deactivateAccount_<?= $users->UserID; ?>">
                                 <i class="bi bi-person-dash"> Deactivate</i>
                                 </button>

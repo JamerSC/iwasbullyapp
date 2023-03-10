@@ -14,7 +14,7 @@ require '../components/navigation.php';
 <div class="container  my-3">
   <h3 class="text-center">Complaint Report Records</h3>
     <?php if($UserRole == 'Councilor' || $UserRole == 'Staff'): ?>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createNewReport">
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createNewReport">
     <i class="bi bi-person-plus"></i>
     Create Report
     </button>
@@ -29,9 +29,10 @@ require '../components/navigation.php';
               <th>Complainant</th>
               <th>Respondent</th>
               <th>Type of Bullying</th>
+              <th>Appointment</th>
               <th>View</th>
               <th>Update</th>
-              <th>Appointment</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -39,27 +40,34 @@ require '../components/navigation.php';
             <?php foreach($report as $reports): ?>
               <td><?= $reports->ReportID; ?></td>
               <td><?= date("F d, Y", strtotime($reports->CreatedDate)); ?></td>
-              <td><?= $reports->C_Lastname; ?></td>
-              <td><?= $reports->R_Lastname; ?></td>
+              <td><?= $reports->C_Firstname." ".$reports->C_Lastname; ?></td>
+              <td><?= $reports->R_Firstname." ".$reports->R_Lastname; ?></td>
               <td><?= $reports->TypeOfBullying; ?></td>
               <td>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" 
-                data-bs-target="#viewReport_<?= $reports->ReportID; ?>">
-                <i class="bi bi-eye"> View</i>
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" 
-                data-bs-target="#updateReport_<?= $reports->ReportID; ?>">
-                  <i class="bi bi-pencil-square"> Update</i>
-                </button>
-              </td>
-              <td>
+                <?php if($reports->ReportStatus == 1): ?>
                 <button type="button" class="btn btn-info" data-bs-toggle="modal" 
                 data-bs-target="#createAppointment_<?= $reports->ReportID; ?>">
-                <i class="bi bi-calendar-plus"> Create</i>
+                <i class="bi bi-calendar-check"> Create</i>
+                </button>
+                <?php else: ?>
+                <button type="button" class="btn btn-warning">
+                <i class="bi bi-calendar-date"> Scheduled</i>
+                </button>
+                <?php endif; ?>  
+              </td>
+              <td>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
+                data-bs-target="#viewReport_<?= $reports->ReportID; ?>">
+                <i class="bi bi-eye-fill"></i>
                 </button>
               </td>
+              <td>
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                data-bs-target="#updateReport_<?= $reports->ReportID; ?>">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+              </td>
+
               <?php include 'report_modal/view_report_modal.php'; ?>
               <?php include 'report_modal/update_report_modal.php'; ?>
               <?php include 'report_modal/create_appointment_modal.php'; ?>

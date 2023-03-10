@@ -8,29 +8,29 @@
       </div>
       <div class="modal-body">
         <!-- Update form -->
-        <form method="post" enctype="multipart/form-data" action="report/update_report.php">
+        <form method="post" enctype="multipart/form-data" action="report/update_report.php?id=<?= $reports->ReportID; ?>">
             <!-- Complainant -->
           <div class="row g-3 mb-3">
           <div class="fw-bold">Complainant</div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Firstname"
-               aria-label="Firstname" value="<?= $reports->C_Firstname; ?>" name="C_Firstname" required>
+               aria-label="Firstname" value="<?= $reports->C_Firstname; ?>" name="C_FirstnameUpdate" required>
             </div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Lastname"
-               aria-label="Lastname" value="<?= $reports->C_Lastname; ?>" name="C_Lastname" required>
+               aria-label="Lastname" value="<?= $reports->C_Lastname; ?>" name="C_LastnameUpdate" required>
             </div>
           </div>
 
           <div class="row g-3 mb-3">
             <div class="col-sm-3">
               <input type="text" class="form-control" placeholder="School ID No." 
-              aria-label="School ID No." value="<?= $reports->C_SchoolIDNumber; ?>" name="C_SchoolIDNumber" required>
+              aria-label="School ID No." value="<?= $reports->C_SchoolIDNumber; ?>" name="C_SchoolIDNumberUpdate" required>
             </div>
              <div class="col-sm-3">
-              <label class="visually-hidden" for="C_UserRole">Year level</label>
-              <select class="form-select" name="C_UserRole">
-                <option selected disabled><?= $reports->C_UserRole; ?></option>
+              <label class="visually-hidden" for="C_UserRoleUpdate">Year level</label>
+              <select class="form-select" name="C_UserRoleUpdate">
+                <option selected><?= $reports->C_UserRole; ?></option>
                 <option value="1">Junior</option>
                 <option value="2">Senior</option>
                 <option value="3">Teacher</option>
@@ -39,11 +39,11 @@
             </div>
             <div class="col-sm-3">
               <input type="text" class="form-control" placeholder="Email" 
-              aria-label="Email" value="<?= $reports->C_Email; ?>" name="C_Email" required>
+              aria-label="Email" value="<?= $reports->C_Email; ?>" name="C_EmailUpdate" required>
             </div>
             <div class="col-sm-3">
               <input type="text" class="form-control" placeholder="Contact No." 
-              aria-label="Contact No." value="<?= $reports->C_ContactNumber; ?>" name="C_ContactNumber" required>
+              aria-label="Contact No." value="<?= $reports->C_ContactNumber; ?>" name="C_ContactNumberUpdate" required>
             </div>
           </div>
 
@@ -52,23 +52,23 @@
           <div class="fw-bold">Respondent</div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Firstname"
-               aria-label="Firstname" value="<?= $reports->R_Firstname; ?>" name="R_Firstname" required>
+               aria-label="Firstname" value="<?= $reports->R_Firstname; ?>" name="R_FirstnameUpdate" required>
             </div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Lastname"
-               aria-label="Lastname" value="<?= $reports->R_Lastname; ?>" name="R_Lastname" required>
+               aria-label="Lastname" value="<?= $reports->R_Lastname; ?>" name="R_LastnameUpdate" required>
             </div>
           </div>
 
           <div class="row g-3 mb-3">
             <div class="col-sm-3">
               <input type="text" class="form-control" placeholder="School ID No." 
-              aria-label="School ID No." value="<?= $reports->R_SchoolIDNumber; ?>" name="R_SchoolIDNumber" required>
+              aria-label="School ID No." value="<?= $reports->R_SchoolIDNumber; ?>" name="R_SchoolIDNumberUpdate" required>
             </div>
              <div class="col-sm-3">
               <label class="visually-hidden" for="R_UserRole">Year level</label>
-              <select class="form-select" name="R_UserRole">
-                <option selected disabled><?= $reports->R_UserRole; ?></option>
+              <select class="form-select" name="R_UserRoleUpdate">
+                <option selected><?= $reports->R_UserRole; ?></option>
                 <option value="1">Junior</option>
                 <option value="2">Senior</option>
                 <option value="3">Teacher</option>
@@ -76,11 +76,11 @@
             </div>
             <div class="col-sm-3">
               <input type="text" class="form-control" placeholder="Email" 
-              aria-label="Email" value="<?= $reports->R_Email; ?>" name="R_Email" required>
+              aria-label="Email" value="<?= $reports->R_Email; ?>" name="R_EmailUpdate" required>
             </div>
             <div class="col-sm-3">
               <input type="text" class="form-control" placeholder="Contact No." 
-              aria-label="Contact No." value="<?= $reports->R_ContactNumber; ?>"  name="R_ContactNumber" required>
+              aria-label="Contact No." value="<?= $reports->R_ContactNumber; ?>"  name="R_ContactNumberUpdate" required>
             </div>
           </div>
            <!-- Act of Bullying -->
@@ -88,12 +88,12 @@
           <div class="fw-bold">Type of Bullying</div>
             <div class="col-sm-5">
               <label class="visually-hidden" for="autoSizingSelect">Select ...</label>
-              <select class="form-select" id="autoSizingSelect" name="TypeOfBullying">
-                <option selected disabled><?= $reports->TypeOfBullying; ?></option>
+              <select class="form-select" id="autoSizingSelect" name="TypeOfBullyingUpdate">
+                <option selected><?= $reports->TypeOfBullying; ?></option>
                 <option value="1">Verbal</option>
                 <option value="2">Physical</option>
                 <option value="3">Social</option>
-                <option value="3">Cyberbulling</option>
+                <option value="4">Cyberbullying</option>
               </select>
             </div>
           </div>
@@ -106,7 +106,7 @@
             </div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Paste Video Link" 
-              aria-label="Paste Video Link" value="<?= $reports->VideoLink; ?>" name="VideoLink">
+              aria-label="Paste Video Link" value="<?= $reports->VideoLink; ?>" name="VideoLinkUpdate">
             </div>
           </div>
           <!-- Remarks -->
@@ -114,7 +114,7 @@
           <div class="fw-bold">Remarks <i class="fw-lighter">(If available)</i></div>
             <div class="col">
               <textarea class="form-control" rows="3" placeholder="Leave a comment here"
-              aria-label="Leave a comment here" name="Remarks"><?= $reports->Remarks; ?></textarea>
+              aria-label="Leave a comment here" name="RemarksUpdate"><?= $reports->Remarks; ?></textarea>
             </div>
           </div>
           <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
