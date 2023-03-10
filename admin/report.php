@@ -25,6 +25,7 @@ require '../components/navigation.php';
           <thead class="table-dark">
             <tr>
               <th>Report No.</th>
+              <th>Date of Report</th>
               <th>Complainant</th>
               <th>Respondent</th>
               <th>Type of Bullying</th>
@@ -37,6 +38,7 @@ require '../components/navigation.php';
             <tr>
             <?php foreach($report as $reports): ?>
               <td><?= $reports->ReportID; ?></td>
+              <td><?= date("F d, Y", strtotime($reports->CreatedDate)); ?></td>
               <td><?= $reports->C_Lastname; ?></td>
               <td><?= $reports->R_Lastname; ?></td>
               <td><?= $reports->TypeOfBullying; ?></td>
