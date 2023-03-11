@@ -12,40 +12,54 @@ if (isset($_POST['appointment'])){
     $UserID = $_SESSION['UserID'];
 
     $AppointmentDate = $_POST['AppointmentDate'];
-    $AppointmentDay = $_POST['AppointmentDay'];
     $StartTime = $_POST['StartTime'];
     $EndTime = $_POST['EndTime'];
 
     $CreatedBy = $_SESSION['UserID'];
 
+    $ReportStatus = 1;
+
     try {
 
-        if(!empty($AppointmentDay))
-        {
-
-            $stmt = $conn->prepare("INSERT INTO Appointment 
-            (UserID, ReportID, AppointmentDate, AppointmentDay, 
-            StartTime, EndTime, CreatedBy)
-            VALUES (:UserID, :ReportID, :AppointmentDate, :AppointmentDay, 
-            :StartTime, :EndTime, :CreatedBy)");
-            $stmt->execute([
+            $stmt = $conn->prepare("
+            
+                INSERT INTO Appointment 
+                (UserID, ReportID, AppointmentDate, StartTime, EndTime, CreatedBy)
+                VALUES 
+                (:UserID, :ReportID, :AppointmentDate, :StartTime, :EndTime, :CreatedBy)");
+            
+            if($stmt->execute([
                 'UserID' => $UserID,
                 'ReportID' => $ReportID,
                 'AppointmentDate' => $AppointmentDate,
-                'AppointmentDay' => $AppointmentDay, 
                 'StartTime' => $StartTime,
                 'EndTime' => $EndTime,
                 'CreatedBy' => $CreatedBy
-            ]);
+            ]))
+            {
+                $query = $conn->prepare("
 
-            echo " <script>alert('Created Report Succesfuly!!')</script>";
-            echo "<script>window.location = '../report.php'</script>";
-        }
-        else
-        {
-            echo " <script>alert('Please Select Day!!')</script>";
-            echo "<script>window.location = '../report.php'</script>";
-        }
+                    UPDATE Report 
+                        SET 
+                            ReportStatus = :ReportStatus,
+                            ModifiedBy = :ModifiedBy
+
+                        WHERE
+                            ReportID = :ReportID
+                ");
+
+                $query->execute([
+                    'ReportStatus' => $ReportStatus,
+                    'ModifiedBy' => $UserID,
+                    'ReportID' => $ReportID
+                ]);
+
+                echo " <script>alert('Schedule Created Succesfuly!!')</script>";
+                echo "<script>window.location = '../report.php'</script>";
+
+            }
+
+
 
     } 
     catch (PDOException $e) 

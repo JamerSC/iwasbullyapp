@@ -4,7 +4,36 @@ require_once '../connection/DBconnection.php';
 require '../components/header.php'; 
 require '../components/navigation.php';
 
-//SELECT * FROM Appointment;
+//AppointmentID to Roman
+function intToRoman($num) {
+  $map = array(
+      'M' => 1000,
+      'CM' => 900,
+      'D' => 500,
+      'CD' => 400,
+      'C' => 100,
+      'XC' => 90,
+      'L' => 50,
+      'XL' => 40,
+      'X' => 10,
+      'IX' => 9,
+      'V' => 5,
+      'IV' => 4,
+      'I' => 1
+  );
+
+  $roman = '';
+  foreach ($map as $key => $value) {
+      while ($num >= $value) {
+          $roman .= $key;
+          $num -= $value;
+      }
+  }
+  return $roman;
+}
+
+//
+
     $stmt = $conn->prepare("
     
       
@@ -24,7 +53,7 @@ require '../components/navigation.php';
       <div class="table-responsive my-3">
         <table class="table align-middle table-hover table-striped">
           <thead class="table-dark">
-            <tr>
+            <tr class="text-start">
               <th>#</th>
               <th>Report No.</th>
               <th>Complainant</th>
@@ -40,16 +69,16 @@ require '../components/navigation.php';
           </thead>
           <tbody>
           <?php foreach($apppointment as $apppointments): ?>
-            <tr>
-              <td><?= $apppointments->AppointmentID; ?></td>
-              <td><?= $apppointments->ReportID; ?></td>
+            <tr class="text-start">
+              <td><b><?= intToRoman($apppointments->AppointmentID); ?></b></td>
+              <td class="text-center"><?= $apppointments->ReportID; ?></td>
               <td><?= $apppointments->C_Firstname." ".$apppointments->C_Lastname; ?></td>
               <td><?= $apppointments->R_Firstname." ".$apppointments->R_Lastname; ?></td>
               <td><?= date("F d, Y", strtotime($apppointments->AppointmentDate)); ?></td>
-              <td><?= $apppointments->AppointmentDay; ?></td>
+              <td><?= date("l", strtotime($apppointments->AppointmentDate)); ?></td>
               <td><?= date("h:i a", strtotime($apppointments->StartTime))?></td>
               <td><?= date("h:i a", strtotime($apppointments->EndTime))?></td>
-              <?php if($apppointments->AppointmentStatus == 1): ?>
+              <?php if($apppointments->AppointmentStatus == 0): ?>
               <td><button type="button" class="btn btn-warning">Enabled</button></td>
               <?php else: ?>
               <td><button type="button" class="btn btn-danger">Canceled</button></td>

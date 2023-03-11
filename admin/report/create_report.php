@@ -34,7 +34,7 @@ if (isset($_POST['report']))
 
     $CreatedBy = $_SESSION['UserID'];
     //Status to validate account
-    $ReportStatus = 1;
+    //$ReportStatus = 1;
 
 
     
@@ -42,11 +42,11 @@ if (isset($_POST['report']))
     $stmt = $conn->prepare("INSERT INTO Report 
     (UserID, C_Firstname, C_Lastname, C_SchoolIDNumber, C_UserRole, C_Email, C_ContactNumber,
     R_Firstname, R_Lastname, R_SchoolIDNumber, R_UserRole, R_Email, R_ContactNumber, 
-    TypeOfBullying, ImageProof, VideoLink, Remarks, CreatedBy, ReportStatus)
+    TypeOfBullying, ImageProof, VideoLink, Remarks, CreatedBy)
 
     VALUES (:UserID, :C_Firstname, :C_Lastname, :C_SchoolIDNumber, :C_UserRole, :C_Email, :C_ContactNumber,
     :R_Firstname, :R_Lastname, :R_SchoolIDNumber, :R_UserRole, :R_Email, :R_ContactNumber, 
-    :TypeOfBullying, :ImageProof, :VideoLink, :Remarks, :CreatedBy, :ReportStatus)");
+    :TypeOfBullying, :ImageProof, :VideoLink, :Remarks, :CreatedBy)");
     
     $stmt->execute
     ([
@@ -67,8 +67,7 @@ if (isset($_POST['report']))
       'ImageProof' => $ImageProof, 
       'VideoLink' => $VideoLink, 
       'Remarks' => $Remarks,
-      'CreatedBy' => $CreatedBy, 
-      'ReportStatus' => $ReportStatus
+      'CreatedBy' => $CreatedBy
     ]);
 
     echo " <script>alert('Created Report Succesfuly!!')</script>";

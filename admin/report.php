@@ -23,7 +23,7 @@ require '../components/navigation.php';
       <div class="table-responsive my-3">
         <table class="table align-middle table-hover table-striped">
           <thead class="table-dark">
-            <tr>
+            <tr class="text-start">
               <th>Report No.</th>
               <th>Date of Report</th>
               <th>Complainant</th>
@@ -36,42 +36,42 @@ require '../components/navigation.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
             <?php foreach($report as $reports): ?>
-              <td><?= $reports->ReportID; ?></td>
-              <td><?= date("F d, Y", strtotime($reports->CreatedDate)); ?></td>
-              <td><?= $reports->C_Firstname." ".$reports->C_Lastname; ?></td>
-              <td><?= $reports->R_Firstname." ".$reports->R_Lastname; ?></td>
-              <td><?= $reports->TypeOfBullying; ?></td>
-              <td>
-                <?php if($reports->ReportStatus == 1): ?>
-                <button type="button" class="btn btn-info" data-bs-toggle="modal" 
-                data-bs-target="#createAppointment_<?= $reports->ReportID; ?>">
-                <i class="bi bi-calendar-check"> Create</i>
-                </button>
-                <?php else: ?>
-                <button type="button" class="btn btn-warning">
-                <i class="bi bi-calendar-date"> Scheduled</i>
-                </button>
-                <?php endif; ?>  
-              </td>
-              <td>
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
-                data-bs-target="#viewReport_<?= $reports->ReportID; ?>">
-                <i class="bi bi-eye-fill"></i>
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
-                data-bs-target="#updateReport_<?= $reports->ReportID; ?>">
-                  <i class="bi bi-pencil-fill"></i>
-                </button>
-              </td>
+              <tr class="text-start">
+                <td><?= $reports->ReportID; ?></td>
+                <td><?= date("F d, Y", strtotime($reports->CreatedDate)); ?></td>
+                <td><?= $reports->C_Firstname." ".$reports->C_Lastname; ?></td>
+                <td><?= $reports->R_Firstname." ".$reports->R_Lastname; ?></td>
+                <td><?= $reports->TypeOfBullying; ?></td>
+                <td>
+                  <?php if($reports->ReportStatus == 0): ?>
+                  <button type="button" class="btn btn-info" data-bs-toggle="modal" 
+                  data-bs-target="#createAppointment_<?= $reports->ReportID; ?>">
+                  <Create class="bi bi-calendar4-week"> Create</i>
+                  </button>
+                  <?php else: ?>
+                  <button type="button" class="btn btn-warning">
+                  <i class="bi bi-calendar-date"> Scheduled</i>
+                  </button>
+                  <?php endif; ?>  
+                </td>
+                <td>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
+                  data-bs-target="#viewReport_<?= $reports->ReportID; ?>">
+                  <i class="bi bi-eye-fill"></i>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                  data-bs-target="#updateReport_<?= $reports->ReportID; ?>">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                </td>
 
-              <?php include 'report_modal/view_report_modal.php'; ?>
-              <?php include 'report_modal/update_report_modal.php'; ?>
-              <?php include 'report_modal/create_appointment_modal.php'; ?>
-            </tr>
+                <?php include 'report_modal/view_report_modal.php'; ?>
+                <?php include 'report_modal/update_report_modal.php'; ?>
+                <?php include 'report_modal/create_appointment_modal.php'; ?>
+              </tr>
             <?php endforeach; ?>
           </tbody>
         </table>

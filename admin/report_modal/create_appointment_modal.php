@@ -44,20 +44,6 @@
               <label class="input-group-text" for="AppointmentDate">Date</label>
                <input type="date" class="form-control" name="AppointmentDate"  required>
           </div>
-
-          <div class="input-group col">
-              <label class="input-group-text" for="AppointmentDay">Day</label>
-              <select class="form-select" name="AppointmentDay">
-                <option selected disabled>Select ...</option>
-                <option value="1">Monday</option>
-                <option value="2">Tuesday</option>
-                <option value="3">Wednesday</option>
-                <option value="4">Thursday</option>
-                <option value="5">Friday</option>
-                <option disabled>Saturday</option>
-                <option disabled>Sunday</option>
-              </select>
-          </div>
         </div>
 
         <div class="row g-3 mb-3">
