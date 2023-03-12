@@ -11,4 +11,4 @@
     <!-- Bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   </head>
-  <body class="bg-light">
+  <body class="bg-primary m-5 p-3" style="--bs-bg-opacity: .1;">

@@ -6,11 +6,11 @@ require '../components/header.php';
 require '../components/navigation.php';
 ?>
 
-<div class="position-relative my-3">
+<div class="container position-relative my-3">
   <h1 class="fs-1">HOME</h1>
   <div class="position-absolute top-10 start-50 translate-middle-x grid gap-3">
     <div class="p-4 m-4 g-col-6 bg-info">
-      <form action="create_post.php" method="POST" enctype="multipart/form-data">
+      <form action="#" method="#" enctype="multipart/form-data">
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" class="form-control" id="title" name="title">
@@ -33,28 +33,26 @@ require '../components/navigation.php';
 
 <?php 
 
-    //$stmt = $conn->prepare("SELECT image FROM images");
-    $stmt = $conn->prepare("SELECT image, post FROM images ORDER BY img_id DESC"); 
     //Descending order using id or date/created at
-
+    $stmt = $conn->prepare("SELECT image, post FROM images ORDER BY img_id DESC"); 
     $stmt->execute();
     $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($images as $image) {
-        $url = 'uploads/' . $image['image'];
-        $posted = $image['post'];
-
-        echo '<div class="p-4 m-5 g-col-6 bg-info">';
-        echo '<a target="_blank" href="' . $url . '">';   //Open new tab for new image
-        echo '<img src="' . $url . '" alt="report" style="width: 100%; display: flex; height: auto;">'; //display image
-        echo '</a>';
-        echo '<br>';
-        echo '<br>';
-        echo '<p>'. $posted .'</p>';
-        echo '<br>';
-        echo '</div>';
-    }
 ?>
+
+    <?php foreach ($images as $image): ?>
+    <div class="card p-5 m-5" style="width: 40rem;">
+      <?php if(!empty($image['image'])): ?>
+      <a href="<?= 'uploads/'.$image['image']; ?>">
+      <img src="<?= 'uploads/'.$image['image']; ?>" class="card-img-top" alt="Something error. Can't retrieve image" style="width: 100%; display: flex; height: auto;">
+      </a>
+      <?php endif; ?>
+      <div class="card-body">
+        <p class="card-text"><?= $image['post']; ?></p>
+      </div>
+    </div>
+    <?php endforeach; ?>
+    
   </div>
 </div> 
 
