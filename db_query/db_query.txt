@@ -56,7 +56,7 @@ CREATE TABLE Report (
      CreatedDate datetime DEFAULT current_timestamp(),
      ModifiedBy INT,
      ModifiedDate timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-     ReportStatus BOOLEAN,
+     ReportStatus TINYINT(1) NOT NULL DEFAULT 0,
      PRIMARY KEY (ReportID), 
      FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
@@ -78,7 +78,7 @@ CREATE TABLE Appointment (
     CreatedDate datetime DEFAULT current_timestamp(),
     ModifiedBy INT,
     ModifiedDate timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-    AppointmentStatus TINYINT(1) NOT NULL DEFAULT 1,
+    AppointmentStatus TINYINT(1) NOT NULL DEFAULT 0,
     PRIMARY KEY (AppointmentID),
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (ReportID) REFERENCES Report(ReportID)
@@ -98,3 +98,22 @@ created_date
 codified_by
 codified_date
 
+
+//POST TABLE
+
+
+
+CREATE TABLE Post (
+    PostID INT NOT NULL AUTO_INCREMENT,
+    UserID INT NOT NULL,
+    PostHeader TEXT NOT NULL,
+    PostBody TEXT NOT NULL,
+    Image TEXT NOT NULL,
+    CreatedBy INT,
+    CreatedDate datetime DEFAULT current_timestamp(),
+    ModifiedBy INT,
+    ModifiedDate timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+    PostStatus TINYINT(1) NOT NULL DEFAULT 0,
+    PRIMARY KEY (PostID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
