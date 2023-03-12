@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg bg-primary" data-bs-theme="dark">
+<nav class="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
     <i class="bi bi-slash-circle"></i> Iwas Bully App</a>

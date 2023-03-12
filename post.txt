@@ -70,3 +70,20 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 <?php endforeach; ?>
+
+
+
+
+
+//HERE
+
+    <div class="card p-5 m-5" style="width: 40rem;">
+      <?php if(!empty($image['image'])): ?>
+      <a href="<?= 'uploads/'.$image['image']; ?>">
+      <img src="<?= 'uploads/'.$image['image']; ?>" class="card-img-top" alt="Something error. Can't retrieve image" style="width: 100%; display: flex; height: auto;">
+      </a>
+      <?php endif; ?>
+      <div class="card-body">
+        <p class="card-text"><?= $image['post']; ?></p>
+      </div>
+    </div>

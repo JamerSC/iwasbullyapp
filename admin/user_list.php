@@ -55,15 +55,17 @@ require '../components/navigation.php';
                             <td>Deactivated</td>
                         <?php endif; ?>
                         <td>
-                        <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
-                        data-bs-target="#viewAccount_<?= $users->UserID; ?>">
+                        <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> 
+                            type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
+                            data-bs-target="#viewAccount_<?= $users->UserID; ?>">
                         <i class="bi bi-eye-fill"></i>
                         </button>
                         </td>
                         <?php if($UserRole == 'Councilor'): ?>
                             <td>
-                            <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
-                            data-bs-target="#updateAccount_<?= $users->UserID; ?>">
+                            <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> 
+                                type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                                data-bs-target="#updateAccount_<?= $users->UserID; ?>">
                             <i class="bi bi-pencil-fill"></i>
                             </button>
                             </td>
