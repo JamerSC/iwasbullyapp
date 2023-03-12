@@ -11,8 +11,7 @@ require '../components/navigation.php';
   
   <div class="position-absolute top-0 start-50 translate-middle-x grid gap-3">
     <div class="p-5 mb-5 shadow-lg bg-body-tertiary rounded" style="width: 700px">
-      
-    <form action="post/create_post.php?" method="POST" enctype="multipart/form-data">
+      <form action="post/create_post.php?" method="POST" enctype="multipart/form-data">
         <h1 class="fs-1">HOME</h1>
         <hr>
         <h3>Create Post</h3>
@@ -51,7 +50,7 @@ require '../components/navigation.php';
     ); 
     $stmt->execute();
     $post = $stmt->fetchAll(PDO::FETCH_OBJ);
-?>
+?>  
         <?php foreach($post as $posted): ?>
           <div class="card-body my-5">
             <h5 class="card-title"><?= $posted->PostHeader; ?></h5>
@@ -61,25 +60,23 @@ require '../components/navigation.php';
             </small></p>
           </div>
           <?php if(!empty($posted->PostImage)): ?>
-          <a href="<?= 'uploads/'.$posted->PostImage; ?>" target="_blank">
-            <img src="<?= 'uploads/'.$posted->PostImage; ?>" class="card-img-bottom object-fit-cover 
-              shadow-lg p-3 mb-5 bg-body-tertiary rounded" alt="Error! Can't load image"/>
-          </a>
-          <?php endif;?>
-          <br>
+            <a href="<?= 'uploads/'.$posted->PostImage; ?>" target="_blank">
+              <img src="<?= 'uploads/'.$posted->PostImage; ?>" class="card-img-bottom object-fit-cover 
+                shadow-lg p-3 mb-5 bg-body-tertiary rounded" alt="Error! Can't load image"/>
+            </a>
+          <?php endif; ?>
+          <!-- Button trigger modal -->
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" 
-            data-bs-target="#updatePost_<?= $posted->PostID; ?>">
-              <i class="bi bi-pencil"> Update</i>
-            </button>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop_<?php $posted->PostID ?>">
+            Update
+          </button>
           </div>
-          <hr><hr>
+          <hr>
         <?php endforeach; ?>
     </div>
   </div>
 </div> 
 
-
-
+<?php //include 'post/update_post_modal.php'; ?>
 
 <?php require '../components/footer.php' ;?>
