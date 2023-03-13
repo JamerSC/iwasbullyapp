@@ -24,7 +24,7 @@ require_once '../connection/DBconnection.php';
             //Account status validation
             if($fetch['UserStatus'] === 1) 
             {
-                if ($fetch['UserRole'] === 'Councilor' || $fetch['UserRole'] === 'Staff' || $fetch['UserRole'] === 'Intern') 
+                if ($fetch['UserRole'] === 'Counselor' || $fetch['UserRole'] === 'Staff' || $fetch['UserRole'] === 'Intern') 
                 {
                     $_SESSION['UserID'] = $fetch['UserID'];
                     $_SESSION['UserRole'] = $fetch['UserRole'];
