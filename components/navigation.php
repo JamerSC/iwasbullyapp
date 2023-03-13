@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
         <!-- < ?php if($users->role == 'councilor') { echo 'display: none;'; } ? > -->
-      <?php if($UserRole == 'Councilor' || $UserRole == 'Staff' || $UserRole == 'Intern'  ): ?>
+      <?php if($UserRole == 'Counselor' || $UserRole == 'Staff' || $UserRole == 'Intern'  ): ?>
       
         <li class="nav-item">
           <a class="nav-link" href="dashboard.php">
@@ -42,7 +42,7 @@
           <i class="bi bi-calendar"></i> Schedule</a>
         </li>
       <?php endif; ?>
-      <?php if($UserRole == 'Councilor' || $UserRole == 'Student' || $UserRole == 'Teacher'): ?>
+      <?php if($UserRole == 'Counselor' || $UserRole == 'Student' || $UserRole == 'Teacher'): ?>
         <li class="nav-item">
           <a class="nav-link" href="chat.php">
           <i class="bi bi-chat-left-dots"></i> Chat</a>

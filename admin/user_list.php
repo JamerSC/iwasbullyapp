@@ -9,7 +9,7 @@ require '../components/navigation.php';
     <div class="container my-3">
         <h3 class="text-center">List of Users</h3>   
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <?php if($UserRole == 'Councilor'): ?>
+        <?php if($UserRole == 'Counselor'): ?>
             <button class="btn btn-outline-primary" 
             data-bs-toggle="modal" data-bs-target="#createNewAccount">
             <i class="bi bi-person-plus"></i>
@@ -34,7 +34,7 @@ require '../components/navigation.php';
                         <th>Lastname</th>
                         <th>Status</th>
                         <th>View</th>
-                        <?php if($UserRole == 'Councilor'): ?>
+                        <?php if($UserRole == 'Counselor'): ?>
                             <th>Update</th>
                             <th>Activate/Deactivate</th>
                         <?php endif; ?>
@@ -50,20 +50,20 @@ require '../components/navigation.php';
                         <td><?= $users->Firstname; ?> </td>
                         <td><?= $users->Lastname; ?></td>
                         <?php if($users->UserStatus == 1): ?>
-                            <td>Actived</td>
+                            <td>Active</td>
                         <?php else: ?>
                             <td>Deactivated</td>
                         <?php endif; ?>
                         <td>
-                        <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> 
+                        <button <?php if($users->UserRole == 'Counselor') { echo 'style="display: none;"'; } ?> 
                             type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
                             data-bs-target="#viewAccount_<?= $users->UserID; ?>">
                         <i class="bi bi-eye-fill"></i>
                         </button>
                         </td>
-                        <?php if($UserRole == 'Councilor'): ?>
+                        <?php if($UserRole == 'Counselor'): ?>
                             <td>
-                            <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> 
+                            <button <?php if($users->UserRole == 'Counselor') { echo 'style="display: none;"'; } ?> 
                                 type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
                                 data-bs-target="#updateAccount_<?= $users->UserID; ?>">
                             <i class="bi bi-pencil-fill"></i>
@@ -77,7 +77,7 @@ require '../components/navigation.php';
                                 </button>
                             <?php else: ?>
                                 <!-- echo 'style="display: none;"' ||  echo 'disabled';-->
-                                <button <?php if($users->UserRole == 'Councilor') { echo 'style="display: none;"'; } ?> 
+                                <button <?php if($users->UserRole == 'Counselor') { echo 'style="display: none;"'; } ?> 
                                 type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
                                 data-bs-target="#deactivateAccount_<?= $users->UserID; ?>">
                                 <i class="bi bi-person-dash"> Deactivate</i>

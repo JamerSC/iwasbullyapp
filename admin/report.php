@@ -13,7 +13,7 @@ require '../components/navigation.php';
 ?>
 <div class="container  my-3">
   <h3 class="text-center">Complaint Report Records</h3>
-    <?php if($UserRole == 'Councilor' || $UserRole == 'Staff'): ?>
+    <?php if($UserRole == 'Counselor' || $UserRole == 'Staff'): ?>
     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createNewReport">
     <i class="bi bi-person-plus"></i>
     Create Report
