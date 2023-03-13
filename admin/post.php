@@ -7,11 +7,10 @@ require '../components/navigation.php';
 
 ?>
 
-<div class="container position-relative">
-  
-  <div class="position-absolute top-0 start-50 translate-middle-x grid gap-3">
+<div class="container d-flex justify-content-center">
     <div class="p-5 mb-5 shadow-lg bg-body-tertiary rounded" style="width: 700px">
-      <form action="post/create_post.php?" method="POST" enctype="multipart/form-data">
+      
+    <form action="post/create_post.php?" method="POST" enctype="multipart/form-data">
         <h1 class="fs-1">HOME</h1>
         <hr>
         <h3>Create Post</h3>
@@ -50,14 +49,12 @@ require '../components/navigation.php';
     ); 
     $stmt->execute();
     $post = $stmt->fetchAll(PDO::FETCH_OBJ);
-?>  
+    
+?>    <div class="card">
         <?php foreach($post as $posted): ?>
           <div class="card-body my-5">
             <h5 class="card-title"><?= $posted->PostHeader; ?></h5>
             <p class="card-text"><?= $posted->PostBody; ?></p>
-            <p class="card-text"><small class="text-muted">#<?= $posted->PostID;?>.
-              Posted By: <?= $posted->UserRole." - ".date("F d, Y; h:i a", strtotime($posted->CreatedDate)); ?>
-            </small></p>
           </div>
           <?php if(!empty($posted->PostImage)): ?>
             <a href="<?= 'uploads/'.$posted->PostImage; ?>" target="_blank">
@@ -65,18 +62,16 @@ require '../components/navigation.php';
                 shadow-lg p-3 mb-5 bg-body-tertiary rounded" alt="Error! Can't load image"/>
             </a>
           <?php endif; ?>
-          <!-- Button trigger modal -->
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop_<?php $posted->PostID ?>">
-            Update
-          </button>
+          <div class="card-footer mb-2">
+            <p class="card-text"><small class="text-muted">
+              Posted By: <?= $posted->UserRole." - ".date("F d, Y; h:i a", strtotime($posted->CreatedDate)); ?>
+            </small></p>
           </div>
           <hr>
         <?php endforeach; ?>
+        </div>
     </div>
-  </div>
-</div> 
 
-<?php //include 'post/update_post_modal.php'; ?>
+</div> 
 
 <?php require '../components/footer.php' ;?>
